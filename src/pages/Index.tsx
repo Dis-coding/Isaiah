@@ -82,21 +82,17 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
 
-      {/* Glass Header Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-[1000] glass-card">
-        <nav className="flex items-center justify-center gap-6 md:gap-10 px-6 py-4">
-          <a href="#home" className="nav-link text-sm">Home</a>
-          <a href="#about" className="nav-link text-sm">About</a>
+      {/* Glass Header Navigation - pill shape */}
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-[1000]">
+        <nav className="flex items-center gap-6 md:gap-8 px-8 py-3 rounded-full bg-card/80 backdrop-blur-xl border border-muted-foreground/15" style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.4)' }}>
+          <a href="#home" className="nav-link text-sm font-semibold">Home</a>
+          <a href="#about" className="nav-link text-sm font-semibold">About</a>
 
           {/* Logo */}
-          <a href="#home" className="mx-4">
-            <div className="w-12 h-12 rounded-full border-2 border-foreground/30 flex items-center justify-center text-foreground font-bold text-lg tracking-wider hover:border-foreground/60 transition-colors">
-              SV
-            </div>
-          </a>
+          <span className="text-foreground font-bold text-2xl tracking-wider mx-2 select-none">SV</span>
 
-          <a href="#services" className="nav-link text-sm">Services</a>
-          <button onClick={() => setIsModalOpen(true)} className="nav-link text-sm bg-transparent border-none cursor-pointer">
+          <a href="#services" className="nav-link text-sm font-semibold">Services</a>
+          <button onClick={() => setIsModalOpen(true)} className="nav-link text-sm font-semibold bg-transparent border-none cursor-pointer">
             Contact
           </button>
         </nav>
@@ -113,13 +109,11 @@ const Index = () => {
           variants={fadeUp}
           className="relative z-[2] text-center px-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-6">
-            Capture{' '}
-            <span className="bg-gradient-to-r from-foreground via-muted-foreground to-foreground bg-clip-text text-transparent">
-              Moments That Last Forever
-            </span>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[1.1] mb-4">
+            <span style={{ color: 'hsl(var(--brand-orange))' }}>Capture</span>{' '}
+            <span className="text-foreground">Moments That Last Forever</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl tracking-wider">
+          <p className="text-muted-foreground text-lg md:text-xl tracking-wider italic">
             Event & Creative Visuals
           </p>
         </motion.div>
