@@ -282,7 +282,7 @@ const Index = () => {
         <DomeGallery
           images={galleryImages}
           fit={0.55}
-          grayscale
+          grayscale={false}
           imageBorderRadius="16px"
           openedImageBorderRadius="20px"
           openedImageWidth="320px"
