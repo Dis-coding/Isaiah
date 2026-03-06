@@ -459,6 +459,7 @@ const Index = () => {
         />
       )}
       <div
+        key={isModalOpen ? 'open' : 'closed'}
         className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
           background: 'rgba(43,46,51,0.95)',
