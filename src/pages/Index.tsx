@@ -198,17 +198,17 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="px-6 py-20 md:px-12 lg:px-20 lg:py-28">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12">Events Covered</h2>
-        <div className="flex items-center justify-center overflow-x-auto scrollbar-hide pb-4 px-4">
+      <section className="py-20 lg:py-28">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12 px-6">Events Covered</h2>
+        <div className="flex items-center justify-start overflow-x-auto scrollbar-hide pb-4 px-6 md:px-12 lg:px-20 gap-0">
           {events.map((event, index) => (
             <div
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="event-card relative flex flex-col justify-end w-[420px] min-w-[260px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer"
+              className="event-card relative flex flex-col justify-end min-w-[280px] md:min-w-[350px] lg:min-w-[420px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer shrink-0"
               style={{
                 boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
-                marginLeft: index > 0 ? '-130px' : '0',
+                marginLeft: index > 0 ? '-80px' : '0',
               }}
             >
               <div className="absolute inset-0">
