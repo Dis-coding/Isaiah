@@ -109,10 +109,8 @@ const Index = () => {
           </a>
 
           {/* Logo in navbar */}
-          <a href="#home" className="mx-2">
-            <div className="w-12 h-12 rounded-full border-2 border-[rgba(193,196,200,0.3)] flex items-center justify-center text-[#f5f6f7] font-bold text-xl tracking-wider transition-all duration-300 hover:border-[rgba(193,196,200,0.6)]">
-              SV
-            </div>
+          <a href="#home" className="mx-2 text-[#f5f6f7] font-bold text-xl tracking-wider transition-all duration-300 hover:text-[#c1c4c8]">
+            SV
           </a>
 
           <a href="#services" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
@@ -448,22 +446,23 @@ const Index = () => {
         Book
       </button>
 
-      {/* Booking Modal */}
-      <div
-        onClick={() => setIsModalOpen(false)}
-        className={`fixed inset-0 z-[1999] transition-all duration-300 ${isModalOpen ? 'opacity-100 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm' : 'opacity-0 pointer-events-none'}`}
-      />
-      <div
-        className={`fixed top-0 right-0 h-full w-full max-w-md z-[2000] transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)] ${isModalOpen ? 'translate-x-0' : 'translate-x-full'}`}
-      >
+      {/* Booking Modal - Chat Box Style */}
+      {isModalOpen && (
         <div
-          className="h-full p-8 flex flex-col border-l border-[rgba(193,196,200,0.2)]"
-          style={{
-            background: 'rgba(43,46,51,0.95)',
-            backdropFilter: 'blur(30px)',
-            WebkitBackdropFilter: 'blur(30px)',
-          }}
-        >
+          onClick={() => setIsModalOpen(false)}
+          className="fixed inset-0 z-[1999]"
+        />
+      )}
+      <div
+        className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+        style={{
+          background: 'rgba(43,46,51,0.95)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
+          boxShadow: '0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(193,196,200,0.15)',
+        }}
+      >
+        <div className="p-6 flex flex-col max-h-[520px] overflow-y-auto">
           <button
             onClick={() => setIsModalOpen(false)}
             className="absolute top-3 right-4 bg-transparent border-none text-[#f5f5f5] text-2xl hover:text-[#c1c4c8] transition-colors cursor-pointer"
