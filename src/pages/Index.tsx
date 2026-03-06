@@ -77,9 +77,14 @@ const Index = () => {
     { author: { name: 'Gabriela Santos', handle: '', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face' }, text: 'Captured our special day with such artistry and emotion. Forever grateful!' },
   ];
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setIsSubmitted(false);
+  };
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsModalOpen(false);
+      if (e.key === 'Escape') closeModal();
     };
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
@@ -449,11 +454,12 @@ const Index = () => {
       {/* Booking Modal - Chat Box Style */}
       {isModalOpen && (
         <div
-          onClick={() => setIsModalOpen(false)}
+          onClick={closeModal}
           className="fixed inset-0 z-[1999]"
         />
       )}
       <div
+        key={isModalOpen ? 'open' : 'closed'}
         className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
           background: 'rgba(43,46,51,0.95)',
@@ -464,7 +470,7 @@ const Index = () => {
       >
         <div className="p-6 flex flex-col max-h-[520px] overflow-y-auto">
           <button
-            onClick={() => setIsModalOpen(false)}
+            onClick={closeModal}
             className="absolute top-3 right-4 bg-transparent border-none text-[#f5f5f5] text-2xl hover:text-[#c1c4c8] transition-colors cursor-pointer"
           >
             ×
@@ -543,10 +549,7 @@ const Index = () => {
                 We'll get back to you as soon as possible.
               </p>
               <button
-                onClick={() => {
-                  setIsSubmitted(false);
-                  setIsModalOpen(false);
-                }}
+                onClick={closeModal}
                 className="bg-transparent border-2 border-[#c1c4c8] text-[#c1c4c8] px-5 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all duration-300 hover:bg-[#c1c4c8] hover:text-[#2b2e33]"
               >
                 Close
