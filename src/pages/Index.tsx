@@ -348,70 +348,68 @@ const Index = () => {
 
       {/* Testimonials Section */}
       <section className="py-20 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#f5f6f7] mb-3">
-              What Clients Say
-            </h2>
-            <p className="text-[#c1c4c8] max-w-md mx-auto">
-              Real feedback from real people who trusted me with their precious moments
-            </p>
-          </div>
-
-          {/* First Row - Moving Right to Left */}
-          <div className="relative overflow-hidden mb-4">
-            <div className="flex animate-marquee-left" style={{ width: 'max-content' }}>
-              {[...Array(3)].flatMap((_, setIndex) =>
-                testimonials.map((testimonial, i) => (
-                  <div
-                    key={`r1-${setIndex}-${i}`}
-                    className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
-                    style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                      <div>
-                        <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
-                        {testimonial.author.handle && (
-                          <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
-                        )}
-                      </div>
-                    </div>
-                    <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-
-          {/* Second Row - Moving Left to Right */}
-          <div className="relative overflow-hidden">
-            <div className="flex animate-marquee-right" style={{ width: 'max-content' }}>
-              {[...Array(3)].flatMap((_, setIndex) =>
-                testimonials2.map((testimonial, i) => (
-                  <div
-                    key={`r2-${setIndex}-${i}`}
-                    className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
-                    style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                      <div>
-                        <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
-                        {testimonial.author.handle && (
-                          <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
-                        )}
-                      </div>
-                    </div>
-                    <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-
-          <div className="h-px bg-[rgba(193,196,200,0.1)] mt-16" />
+        <div className="text-center mb-12 px-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#f5f6f7] mb-3">
+            What Clients Say
+          </h2>
+          <p className="text-[#c1c4c8] max-w-md mx-auto">
+            Real feedback from real people who trusted me with their precious moments
+          </p>
         </div>
+
+        {/* First Row - Moving Right to Left */}
+        <div className="relative w-full mb-4">
+          <div className="flex animate-marquee-left" style={{ width: 'max-content' }}>
+            {[...Array(3)].flatMap((_, setIndex) =>
+              testimonials.map((testimonial, i) => (
+                <div
+                  key={`r1-${setIndex}-${i}`}
+                  className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
+                  style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+                    <div>
+                      <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
+                      {testimonial.author.handle && (
+                        <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        {/* Second Row - Moving Left to Right */}
+        <div className="relative w-full">
+          <div className="flex animate-marquee-right" style={{ width: 'max-content' }}>
+            {[...Array(3)].flatMap((_, setIndex) =>
+              testimonials2.map((testimonial, i) => (
+                <div
+                  key={`r2-${setIndex}-${i}`}
+                  className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
+                  style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
+                    <div>
+                      <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
+                      {testimonial.author.handle && (
+                        <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        <div className="h-px bg-[rgba(193,196,200,0.1)] mt-16 max-w-6xl mx-auto" />
       </section>
 
       {/* Footer */}
