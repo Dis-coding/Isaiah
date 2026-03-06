@@ -454,7 +454,7 @@ const Index = () => {
       {/* Booking Modal - Chat Box Style */}
       {isModalOpen && (
         <div
-          onClick={() => setIsModalOpen(false)}
+          onClick={closeModal}
           className="fixed inset-0 z-[1999]"
         />
       )}
