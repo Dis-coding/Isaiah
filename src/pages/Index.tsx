@@ -549,10 +549,7 @@ const Index = () => {
                 We'll get back to you as soon as possible.
               </p>
               <button
-                onClick={() => {
-                  setIsSubmitted(false);
-                  setIsModalOpen(false);
-                }}
+                onClick={closeModal}
                 className="bg-transparent border-2 border-[#c1c4c8] text-[#c1c4c8] px-5 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all duration-300 hover:bg-[#c1c4c8] hover:text-[#2b2e33]"
               >
                 Close
