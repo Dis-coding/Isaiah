@@ -469,7 +469,7 @@ const Index = () => {
       >
         <div className="p-6 flex flex-col max-h-[520px] overflow-y-auto">
           <button
-            onClick={() => setIsModalOpen(false)}
+            onClick={closeModal}
             className="absolute top-3 right-4 bg-transparent border-none text-[#f5f5f5] text-2xl hover:text-[#c1c4c8] transition-colors cursor-pointer"
           >
             ×
