@@ -109,10 +109,8 @@ const Index = () => {
           </a>
 
           {/* Logo in navbar */}
-          <a href="#home" className="mx-2">
-            <div className="w-12 h-12 rounded-full border-2 border-[rgba(193,196,200,0.3)] flex items-center justify-center text-[#f5f6f7] font-bold text-xl tracking-wider transition-all duration-300 hover:border-[rgba(193,196,200,0.6)]">
-              SV
-            </div>
+          <a href="#home" className="mx-2 text-[#f5f6f7] font-bold text-xl tracking-wider transition-all duration-300 hover:text-[#c1c4c8]">
+            SV
           </a>
 
           <a href="#services" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
