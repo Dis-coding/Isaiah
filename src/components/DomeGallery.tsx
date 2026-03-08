@@ -407,15 +407,56 @@ export default function DomeGallery({
     }
   }, [enlargeTransitionMs, lockScroll, openedImageHeight, openedImageWidth, segments, unlockScroll]);
 
-  const onTileClick = useCallback((e: React.MouseEvent) => {
-    if (draggingRef.current || movedRef.current || performance.now() - lastDragEndAt.current < 80 || openingRef.current) return;
-    openItemFromElement(e.currentTarget as HTMLElement);
-  }, [openItemFromElement]);
+  const centeredTileRef = useRef<HTMLElement | null>(null);
+  const savedRotRef = useRef({ x: 0, y: 0 });
 
-  const onTilePointerUp = useCallback((e: React.PointerEvent) => {
-    if (e.pointerType !== 'touch' || draggingRef.current || movedRef.current || performance.now() - lastDragEndAt.current < 80 || openingRef.current) return;
-    openItemFromElement(e.currentTarget as HTMLElement);
-  }, [openItemFromElement]);
+  const centerTile = useCallback((parent: HTMLElement) => {
+    const offsetX = getDataNumber(parent, 'offsetX', 0);
+    const offsetY = getDataNumber(parent, 'offsetY', 0);
+    const sizeX = getDataNumber(parent, 'sizeX', 2);
+    const sizeY = getDataNumber(parent, 'sizeY', 2);
+    const tileRot = computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, segments);
+    savedRotRef.current = { ...rotationRef.current };
+    centeredTileRef.current = parent;
+    stopInertia();
+    const targetY = wrapAngleSigned(-tileRot.rotateY);
+    const targetX = clamp(-tileRot.rotateX, -maxVerticalRotationDeg, maxVerticalRotationDeg);
+    // Animate to center
+    const startX = rotationRef.current.x, startY = rotationRef.current.y;
+    let diffY = wrapAngleSigned(targetY - startY);
+    const diffX = targetX - startX;
+    const duration = 600;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      rotationRef.current = { x: startX + diffX * ease, y: wrapAngleSigned(startY + diffY * ease) };
+      applyTransform(rotationRef.current.x, rotationRef.current.y);
+      if (t < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [segments, maxVerticalRotationDeg, stopInertia]);
+
+  const uncenterTile = useCallback(() => {
+    centeredTileRef.current = null;
+  }, []);
+
+  const onTileClick = useCallback((e: React.MouseEvent) => {
+    if (draggingRef.current || movedRef.current || performance.now() - lastDragEndAt.current < 80) return;
+    const parent = (e.currentTarget as HTMLElement).parentElement;
+    if (!parent) return;
+    if (centeredTileRef.current === parent) return;
+    e.stopPropagation();
+    centerTile(parent);
+  }, [centerTile]);
+
+  // Dismiss centered tile on scroll or click outside
+  useEffect(() => {
+    const dismiss = () => { if (centeredTileRef.current) uncenterTile(); };
+    window.addEventListener('scroll', dismiss, true);
+    window.addEventListener('click', dismiss);
+    return () => { window.removeEventListener('scroll', dismiss, true); window.removeEventListener('click', dismiss); };
+  }, [uncenterTile]);
 
   useEffect(() => { return () => { document.body.classList.remove('dg-scroll-lock'); }; }, []);
 
@@ -427,7 +468,7 @@ export default function DomeGallery({
             {items.map((it, i) => (
               <div key={i} className="item" data-offset-x={it.x} data-offset-y={it.y} data-size-x={it.sizeX} data-size-y={it.sizeY} data-src={it.src}
                 style={{ '--offset-x': it.x, '--offset-y': it.y, '--item-size-x': it.sizeX, '--item-size-y': it.sizeY } as React.CSSProperties}>
-                <div className="item__image" aria-label={it.alt}>
+                <div className="item__image" onClick={onTileClick} role="button" tabIndex={0} aria-label={it.alt}>
                   <img src={it.src} alt={it.alt} loading="lazy" decoding="async" />
                 </div>
               </div>
