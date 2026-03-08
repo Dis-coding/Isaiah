@@ -372,8 +372,10 @@ export default function DomeGallery({
     overlay.style.transformOrigin = 'top left';
     overlay.style.transition = `transform ${enlargeTransitionMs}ms ease, opacity ${enlargeTransitionMs}ms ease`;
     const rawSrc = parent.dataset.src || el.querySelector('img')?.src || '';
+    // Upgrade to high-res for the enlarged view
+    const hiResSrc = rawSrc.replace(/[?&]w=\d+/, '?w=1200');
     const img = document.createElement('img');
-    img.src = rawSrc;
+    img.src = hiResSrc;
     overlay.appendChild(img);
     viewerRef.current!.appendChild(overlay);
     const tx0 = tileR.left - frameR.left, ty0 = tileR.top - frameR.top;

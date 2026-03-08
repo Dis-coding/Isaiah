@@ -42,21 +42,21 @@ const Index = () => {
   ];
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=400',
-    'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400',
-    'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400',
-    'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400',
-    'https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=400',
-    'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400',
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400',
-    'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400',
-    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400',
-    'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400',
-    'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400',
-    'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400',
-    'https://images.unsplash.com/photo-1415886541506-6efc5e4b1786?w=400',
-    'https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?w=400',
+    'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
+    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
+    'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800',
+    'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800',
+    'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
+    'https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=800',
+    'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800',
+    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800',
+    'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
+    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
+    'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800',
+    'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800',
+    'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800',
+    'https://images.unsplash.com/photo-1415886541506-6efc5e4b1786?w=800',
+    'https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?w=800',
   ];
 
   const testimonials: Testimonial[] = [
