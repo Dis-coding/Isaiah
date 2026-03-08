@@ -427,7 +427,7 @@ export default function DomeGallery({
             {items.map((it, i) => (
               <div key={i} className="item" data-offset-x={it.x} data-offset-y={it.y} data-size-x={it.sizeX} data-size-y={it.sizeY} data-src={it.src}
                 style={{ '--offset-x': it.x, '--offset-y': it.y, '--item-size-x': it.sizeX, '--item-size-y': it.sizeY } as React.CSSProperties}>
-                <div className="item__image" onClick={onTileClick} onPointerUp={onTilePointerUp} role="button" tabIndex={0} aria-label={it.alt}>
+                <div className="item__image" aria-label={it.alt}>
                   <img src={it.src} alt={it.alt} loading="lazy" decoding="async" />
                 </div>
               </div>
