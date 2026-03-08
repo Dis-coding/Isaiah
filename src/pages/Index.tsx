@@ -285,8 +285,8 @@ const Index = () => {
           grayscale={false}
           imageBorderRadius="16px"
           openedImageBorderRadius="20px"
-          openedImageWidth="320px"
-          openedImageHeight="450px"
+          openedImageWidth="250px"
+          openedImageHeight="350px"
         />
       </section>
 
