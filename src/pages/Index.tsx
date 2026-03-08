@@ -198,24 +198,25 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="py-20 lg:py-28 overflow-x-auto">
+      <section className="py-20 lg:py-28">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12 px-6">Events Covered</h2>
-        <div className="flex items-stretch gap-4 px-6 md:px-12 lg:px-20">
-          {events.map((event) => (
+        <div className="flex items-center justify-start overflow-x-auto scrollbar-hide pb-4 px-6 md:px-12 lg:px-20 gap-0">
+          {events.map((event, index) => (
             <div
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="event-card relative flex flex-col justify-end flex-1 min-w-0 aspect-[3/4] rounded-[16px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer"
+              className="event-card relative flex flex-col justify-end min-w-[280px] md:min-w-[350px] lg:min-w-[420px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer shrink-0"
               style={{
                 boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
+                marginLeft: index > 0 ? '-80px' : '0',
               }}
             >
               <div className="absolute inset-0">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="relative z-[2] p-3 bg-gradient-to-t from-[rgba(11,11,11,0.9)] via-[rgba(11,11,11,0.4)] to-transparent">
-                <h3 className="text-sm md:text-base font-bold text-[#f5f6f7] truncate">{event.title}</h3>
-                <p className="text-xs text-[#c1c4c8]">{event.date}</p>
+              <div className="relative z-[2] p-6 bg-gradient-to-t from-[rgba(11,11,11,0.9)] via-[rgba(11,11,11,0.4)] to-transparent">
+                <h3 className="text-xl font-bold text-[#f5f6f7]">{event.title}</h3>
+                <p className="text-sm text-[#c1c4c8]">{event.date}</p>
               </div>
             </div>
           ))}
