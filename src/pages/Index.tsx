@@ -198,14 +198,14 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="py-20 lg:py-28 overflow-hidden">
+      <section className="py-20 lg:py-28 overflow-x-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12 px-6">Events Covered</h2>
-        <div className="flex items-stretch justify-center flex-wrap gap-4 px-6 md:px-12 lg:px-20">
+        <div className="flex items-stretch gap-4 px-6 md:px-12 lg:px-20">
           {events.map((event) => (
             <div
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="event-card relative flex flex-col justify-end w-[calc(50%-8px)] md:w-[calc(33.333%-12px)] lg:w-[calc(16.666%-14px)] aspect-[3/4] rounded-[16px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer"
+              className="event-card relative flex flex-col justify-end flex-1 min-w-0 aspect-[3/4] rounded-[16px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer"
               style={{
                 boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
               }}
@@ -213,8 +213,8 @@ const Index = () => {
               <div className="absolute inset-0">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="relative z-[2] p-4 bg-gradient-to-t from-[rgba(11,11,11,0.9)] via-[rgba(11,11,11,0.4)] to-transparent">
-                <h3 className="text-base font-bold text-[#f5f6f7]">{event.title}</h3>
+              <div className="relative z-[2] p-3 bg-gradient-to-t from-[rgba(11,11,11,0.9)] via-[rgba(11,11,11,0.4)] to-transparent">
+                <h3 className="text-sm md:text-base font-bold text-[#f5f6f7] truncate">{event.title}</h3>
                 <p className="text-xs text-[#c1c4c8]">{event.date}</p>
               </div>
             </div>
