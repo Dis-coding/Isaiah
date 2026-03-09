@@ -122,6 +122,7 @@ export default function DomeGallery({
   const autoRotateRAF = useRef<number | null>(null);
   const scrollLockedRef = useRef(false);
   const lockedRadiusRef = useRef<number | null>(null);
+  const axisLockedRef = useRef<'horizontal' | 'vertical' | null>(null);
 
   const lockScroll = useCallback(() => {
     if (scrollLockedRef.current) return;
