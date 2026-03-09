@@ -199,24 +199,25 @@ const Index = () => {
 
       {/* Events Covered Section */}
       <section className="py-20 lg:py-28">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12 px-6">Events Covered</h2>
-        <div className="flex items-center justify-start overflow-x-auto scrollbar-hide pb-4 px-6 md:px-12 lg:px-20 gap-0">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#f5f6f7] mb-8 px-6 md:px-12 lg:px-20 uppercase tracking-wide">Events Covered</h2>
+        <div className="flex items-stretch overflow-x-auto scrollbar-hide px-1 gap-0">
           {events.map((event, index) => (
             <div
               key={event.id}
               onClick={() => setSelectedEvent(event)}
-              className="event-card relative flex flex-col justify-end min-w-[280px] md:min-w-[350px] lg:min-w-[420px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer shrink-0"
+              className="event-card relative flex flex-col justify-end min-w-[130px] md:min-w-[160px] lg:min-w-[200px] h-[230px] md:h-[280px] lg:h-[320px] rounded-[14px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer shrink-0"
               style={{
-                boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
-                marginLeft: index > 0 ? '-80px' : '0',
+                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)',
+                marginLeft: index > 0 ? '-10px' : '0',
+                zIndex: index,
               }}
             >
               <div className="absolute inset-0">
                 <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <div className="relative z-[2] p-6 bg-gradient-to-t from-[rgba(11,11,11,0.9)] via-[rgba(11,11,11,0.4)] to-transparent">
-                <h3 className="text-xl font-bold text-[#f5f6f7]">{event.title}</h3>
-                <p className="text-sm text-[#c1c4c8]">{event.date}</p>
+              <div className="relative z-[2] p-3 md:p-4 bg-gradient-to-t from-[rgba(11,11,11,0.85)] via-[rgba(11,11,11,0.3)] to-transparent">
+                <h3 className="text-sm md:text-base font-bold text-[#f5f6f7] truncate">{event.title}</h3>
+                <p className="text-xs text-[#c1c4c8]">{event.date}</p>
               </div>
             </div>
           ))}
