@@ -208,57 +208,62 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="py-20 lg:py-28">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#f5f6f7] mb-8 px-6 md:px-12 lg:px-20 uppercase tracking-wide">Events Covered</h2>
-        <div className="flex items-stretch overflow-x-auto scrollbar-hide px-1 gap-0">
+      <section className="bg-gradient-to-t from-[#2b2e33] to-[#7b7f85] py-32 w-full relative z-[1]">
+        <h2 className="text-3xl font-semibold tracking-wider -mt-16 pl-[3vw] text-[#f5f5f5] uppercase relative">Events Covered</h2>
+        <div className="flex gap-8 px-[5vw] py-12 overflow-x-auto -ml-[4vw] scrollbar-hide card-container">
           {events.map((event, index) => (
-            <div
-              key={event.id}
+            <article 
+              key={event.id} 
               onClick={() => setSelectedEvent(event)}
-              className="event-card relative flex flex-col justify-end min-w-[130px] md:min-w-[160px] lg:min-w-[200px] h-[230px] md:h-[280px] lg:h-[320px] rounded-[14px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer shrink-0"
-              style={{
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)',
-                marginLeft: index > 0 ? '-10px' : '0',
-                zIndex: index,
+              className="event-card relative flex flex-col justify-end w-[420px] min-w-[260px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer" 
+              style={{ 
+                boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
+                marginLeft: index > 0 ? '-130px' : '0'
               }}
             >
-              <div className="absolute inset-0">
-                <img src={event.image} alt={event.title} className="w-full h-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${event.image})` }}>
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.85)] to-transparent to-65%"></div>
               </div>
-              <div className="relative z-[2] p-3 md:p-4 bg-gradient-to-t from-[rgba(11,11,11,0.85)] via-[rgba(11,11,11,0.3)] to-transparent">
-                <h3 className="text-sm md:text-base font-bold text-[#f5f6f7] truncate">{event.title}</h3>
-                <p className="text-xs text-[#c1c4c8]">{event.date}</p>
+              <div className="relative z-[10] p-6">
+                <h3 className="text-2xl font-bold text-white mb-1">{event.title}</h3>
+                <p className="text-sm text-[#bfbfbf]">{event.date}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
       {/* Event Gallery Modal */}
       {selectedEvent && (
-        <div
-          onClick={() => setSelectedEvent(null)}
+        <div 
+          onClick={() => setSelectedEvent(null)} 
           className="fixed inset-0 bg-[rgba(0,0,0,0.9)] backdrop-blur-sm flex justify-center items-center z-[2001] opacity-100 visible transition-all duration-300 overflow-y-auto p-8"
         >
-          <div
+          <div 
             onClick={(e) => e.stopPropagation()}
             className="relative bg-[rgba(43,46,51,0.95)] backdrop-blur-xl border border-[rgba(193,196,200,0.3)] p-8 rounded-[20px] w-full max-w-[1200px] max-h-[90vh] overflow-y-auto"
             style={{ boxShadow: '0 24px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1)' }}
           >
-            <button
-              onClick={() => setSelectedEvent(null)}
-              className="absolute top-4 right-5 bg-transparent border-none text-[#f5f5f5] text-3xl hover:text-[#c1c4c8] transition-colors cursor-pointer z-10"
+            <button 
+              onClick={() => setSelectedEvent(null)} 
+              className="absolute top-4 right-5 bg-none border-none text-[#f5f5f5] text-3xl hover:text-[#c1c4c8] transition-colors cursor-pointer z-10"
             >
-              ×
+              &times;
             </button>
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-[#f5f6f7]">{selectedEvent.title}</h3>
-              <p className="text-sm text-[#c1c4c8]">{selectedEvent.date}</p>
+            
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-[#f5f6f7] mb-2">{selectedEvent.title}</h2>
+              <p className="text-[#c1c4c8]">{selectedEvent.date}</p>
             </div>
-            <div className="columns-2 md:columns-3 gap-4">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {selectedEvent.gallery?.map((img, i) => (
-                <div key={i} className="mb-4 break-inside-avoid">
-                  <img src={img} alt={`${selectedEvent.title} ${i + 1}`} className="w-full rounded-xl" loading="lazy" />
+                <div key={i} className="aspect-[4/3] rounded-[15px] overflow-hidden group">
+                  <img 
+                    src={img} 
+                    alt={`${selectedEvent.title} ${i + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
                 </div>
               ))}
             </div>
