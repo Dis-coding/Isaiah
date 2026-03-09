@@ -272,7 +272,6 @@ const Index = () => {
               src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800"
               alt="Photographer at work"
               className="w-full rounded-[20px] object-cover aspect-[4/5]"
-              style={{ transform: 'rotate(15deg)' }}
               loading="lazy"
             />
           </div>
