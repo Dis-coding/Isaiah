@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Camera, Users, Star, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import DomeGallery from '@/components/DomeGallery';
@@ -25,6 +25,7 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const bookingFormRef = useRef<HTMLFormElement | null>(null);
 
   const events: Event[] = [
     { id: 1, date: 'Feb 25th, 2026', title: 'Night Concert', image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
@@ -78,6 +79,7 @@ const Index = () => {
   ];
 
   const closeModal = () => {
+    bookingFormRef.current?.reset();
     setIsModalOpen(false);
     setIsSubmitted(false);
   };
