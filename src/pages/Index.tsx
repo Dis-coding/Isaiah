@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Camera, Users, Star, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import DomeGallery from '@/components/DomeGallery';
@@ -25,6 +25,7 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const bookingFormRef = useRef<HTMLFormElement | null>(null);
 
   const events: Event[] = [
     { id: 1, date: 'Feb 25th, 2026', title: 'Night Concert', image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
@@ -78,6 +79,7 @@ const Index = () => {
   ];
 
   const closeModal = () => {
+    bookingFormRef.current?.reset();
     setIsModalOpen(false);
     setIsSubmitted(false);
   };
@@ -454,10 +456,12 @@ const Index = () => {
       </footer>
 
       {/* Floating Book Button */}
-      <button onClick={() => {
+      <button
+        onClick={() => {
+          bookingFormRef.current?.reset();
           setIsModalOpen(true);
           setIsSubmitted(false);
-        }} 
+        }}
         className="fixed bottom-8 right-8 bg-[rgba(245,246,247,0.1)] backdrop-blur-md border-2 border-[rgba(245,246,247,0.3)] text-[#f5f6f7] px-7 py-4 rounded-full font-bold tracking-wider cursor-pointer z-[999] transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(245,246,247,0.2)] hover:border-[rgba(245,246,247,0.5)] hover:shadow-[0_12px_30px_rgba(255,255,255,0.3)] animate-[fadeInUp_0.8s_ease_forwards]"
         style={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)' }}
       >
@@ -465,10 +469,12 @@ const Index = () => {
       </button>
 
       {/* Booking Modal */}
-      <div onClick={() => setIsModalOpen(false)}
+      <div
+        onClick={closeModal}
         className={`fixed inset-0 z-[1999] transition-all duration-300 ${isModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       />
-      <div className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+      <div
+        className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
           background: 'rgba(43,46,51,0.95)',
           backdropFilter: 'blur(30px)',
@@ -477,97 +483,95 @@ const Index = () => {
         }}
       >
         <div className="p-6 flex flex-col max-h-[520px] overflow-y-auto">
-          <button onClick={() => setIsModalOpen(false)} 
-              className="absolute top-3 right-4 bg-none border-none text-[#f5f5f5] text-2xl hover:text-[#c1c4c8] transition-colors cursor-pointer"
-            >
-              ×
-            </button>
-            
-            {!isSubmitted ? (
-              <>
-                <h3 className="text-xl font-bold text-[#f5f6f7] mb-6">Book a Session</h3>
-                <form onSubmit={(e) => {
-                    e.preventDefault();
-                    const form = e.target as HTMLFormElement;
-                    const formData = new FormData(form);
-                    
-                    fetch('https://formsubmit.co/discoding02@gmail.com', {
-                      method: 'POST',
-                      body: formData
-                    }).then(() => {
-                      setIsSubmitted(true);
-                      form.reset();
-                    });
-                  }}
-                  className="flex flex-col gap-3"
+          <button
+            onClick={closeModal}
+            className="absolute top-3 right-4 bg-none border-none text-[#f5f5f5] text-2xl hover:text-[#c1c4c8] transition-colors cursor-pointer"
+          >
+            ×
+          </button>
+
+          {!isSubmitted ? (
+            <>
+              <h3 className="text-xl font-bold text-[#f5f6f7] mb-6">Book a Session</h3>
+              <form
+                ref={bookingFormRef}
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = bookingFormRef.current ?? (e.target as HTMLFormElement);
+                  const formData = new FormData(form);
+
+                  fetch('https://formsubmit.co/discoding02@gmail.com', {
+                    method: 'POST',
+                    body: formData,
+                  }).then(() => {
+                    setIsSubmitted(true);
+                    form.reset();
+                  });
+                }}
+                className="flex flex-col gap-3"
+              >
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Booking Request" />
+                <input type="hidden" name="_template" value="table" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  required
+                  className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
+                />
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
+                />
+                <textarea
+                  name="details"
+                  placeholder="Tell us about your event..."
+                  rows={3}
+                  className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all resize-none"
+                />
+                <button
+                  type="submit"
+                  className="mt-2 bg-[#c1c4c8] border-none px-4 py-3 rounded-full text-[#2b2e33] font-bold text-sm cursor-pointer transition-all duration-300 hover:bg-[#f5f6f7] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)]"
                 >
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_subject" value="New Booking Request" />
-                  <input type="hidden" name="_template" value="table" />
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder="Full Name" 
-                    required 
-                    className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
-                  />
-                  <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="Email Address" 
-                    required 
-                    className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
-                  />
-                  <input 
-                    type="tel" 
-                    name="phone" 
-                    placeholder="Phone Number" 
-                    className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
-                  />
-                  <input 
-                    type="date" 
-                    name="date" 
-                    required 
-                    className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all"
-                  />
-                  <textarea 
-                    name="details" 
-                    placeholder="Tell us about your event..." 
-                    rows={3} 
-                    className="bg-[rgba(11,11,11,0.6)] backdrop-blur-md border border-[rgba(193,196,200,0.25)] px-3 py-2.5 rounded-[10px] text-[#f5f5f5] text-sm font-[inherit] focus:outline-none focus:border-[#c1c4c8] focus:shadow-[0_0_10px_rgba(193,196,200,0.3)] transition-all resize-none"
-                  />
-                  <button 
-                    type="submit" 
-                    className="mt-2 bg-[#c1c4c8] border-none px-4 py-3 rounded-full text-[#2b2e33] font-bold text-sm cursor-pointer transition-all duration-300 hover:bg-[#f5f6f7] hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(255,255,255,0.4)]"
-                  >
-                    Submit Booking
-                  </button>
-                </form>
-              </>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-8 animate-[fadeInScale_0.5s_ease_forwards]">
-                <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4 animate-[checkmark_0.5s_ease_forwards]">
-                  <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-[#f5f6f7] mb-2">Thank You!</h3>
-                <p className="text-[#c1c4c8] text-center text-sm mb-5">
-                  We'll get back to you as soon as possible.
-                </p>
-                <button 
-                  onClick={() => {
-                    setIsSubmitted(false);
-                    setIsModalOpen(false);
-                  }}
-                  className="bg-transparent border-2 border-[#c1c4c8] text-[#c1c4c8] px-5 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all duration-300 hover:bg-[#c1c4c8] hover:text-[#2b2e33]"
-                >
-                  Close
+                  Submit Booking
                 </button>
+              </form>
+            </>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-8 animate-[fadeInScale_0.5s_ease_forwards]">
+              <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4 animate-[checkmark_0.5s_ease_forwards]">
+                <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
               </div>
-            )}
-          </div>
+              <h3 className="text-xl font-bold text-[#f5f6f7] mb-2">Thank You!</h3>
+              <p className="text-[#c1c4c8] text-center text-sm mb-5">We'll get back to you as soon as possible.</p>
+              <button
+                onClick={closeModal}
+                className="bg-transparent border-2 border-[#c1c4c8] text-[#c1c4c8] px-5 py-2 rounded-full text-sm font-semibold cursor-pointer transition-all duration-300 hover:bg-[#c1c4c8] hover:text-[#2b2e33]"
+              >
+                Close
+              </button>
+            </div>
+          )}
         </div>
+      </div>
 
       <style>{`
         @keyframes fadeInUp {
