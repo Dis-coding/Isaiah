@@ -145,14 +145,14 @@ const Index = () => {
                 <motion.path
                   key={`pos-${i}`}
                   d={`M${1400 + spread} ${800 + curveOffset} Q${600 - i * 15} ${400 + i * 5}, ${-400 - spread} ${-200 - curveOffset}`}
-                  stroke="rgba(193,196,200,0.15)"
-                  strokeWidth={0.4 + i * 0.04}
+                  stroke={i % 3 === 0 ? 'rgba(232,83,30,0.25)' : 'rgba(193,196,200,0.3)'}
+                  strokeWidth={0.8 + i * 0.08}
                   fill="none"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.05 + i * 0.012 }}
+                  animate={{ pathLength: 1, opacity: 0.15 + i * 0.02 }}
                   transition={{
-                    pathLength: { duration: 10 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
-                    opacity: { duration: 1.5, delay: i * 0.05 },
+                    pathLength: { duration: 8 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
+                    opacity: { duration: 1.2, delay: i * 0.04 },
                   }}
                 />
               );
@@ -164,14 +164,14 @@ const Index = () => {
                 <motion.path
                   key={`neg-${i}`}
                   d={`M${-200 - spread} ${800 + curveOffset} Q${600 + i * 15} ${400 - i * 5}, ${1400 + spread} ${-200 - curveOffset}`}
-                  stroke="rgba(193,196,200,0.08)"
-                  strokeWidth={0.3 + i * 0.03}
+                  stroke={i % 4 === 0 ? 'rgba(232,83,30,0.15)' : 'rgba(193,196,200,0.18)'}
+                  strokeWidth={0.6 + i * 0.06}
                   fill="none"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.03 + i * 0.008 }}
+                  animate={{ pathLength: 1, opacity: 0.1 + i * 0.015 }}
                   transition={{
-                    pathLength: { duration: 12 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
-                    opacity: { duration: 1.5, delay: i * 0.05 },
+                    pathLength: { duration: 10 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
+                    opacity: { duration: 1.2, delay: i * 0.04 },
                   }}
                 />
               );
