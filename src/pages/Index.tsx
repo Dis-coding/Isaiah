@@ -133,51 +133,52 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="hero" className="relative overflow-hidden h-screen flex justify-center items-center text-center bg-[#2b2e33]">
         {/* Floating Paths Background */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice">
-            <title>Background Paths</title>
+        <div className="absolute inset-0 pointer-events-none z-0">
+          <svg className="w-full h-full text-[#f5f6f7]" viewBox="0 0 696 316" fill="none">
             {Array.from({ length: 36 }, (_, i) => {
-              const yStart = 300 + i * 8;
-              const cpX = 400 + i * 10;
-              const cpY = 500 + i * 6;
-              const xEnd = 1300 + i * 10;
-              const yEnd = 850 + i * 5;
+              const position = 1;
               return (
                 <motion.path
-                  key={`pos-${i}`}
-                  d={`M${-100 - i * 5} ${yStart} Q${cpX} ${cpY}, ${xEnd} ${yEnd}`}
-                  stroke={i % 3 === 0 ? 'rgba(232,83,30,0.25)' : 'rgba(193,196,200,0.3)'}
-                  strokeWidth={0.8 + i * 0.08}
-                  fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.15 + i * 0.02 }}
+                  key={i}
+                  d={`M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`}
+                  stroke="currentColor"
+                  strokeWidth={0.5 + i * 0.03}
+                  strokeOpacity={0.1 + i * 0.03}
+                  initial={{ pathLength: 0.3, opacity: 0.6 }}
+                  animate={{
+                    pathLength: 1,
+                    opacity: [0.3, 0.6, 0.3],
+                    pathOffset: [0, 1, 0],
+                  }}
                   transition={{
-                    pathLength: { duration: 8 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
-                    opacity: { duration: 1.2, delay: i * 0.04 },
+                    duration: 20 + Math.random() * 10,
+                    repeat: Infinity,
+                    ease: "linear",
                   }}
                 />
               );
             })}
             {Array.from({ length: 36 }, (_, i) => {
-              const yStart = 350 + i * 7;
-              const cpX = 500 + i * 8;
-              const cpY = 550 + i * 5;
-              const xEnd = 1400 + i * 8;
-              const yEnd = 900 + i * 4;
+              const position = -1;
               return (
                 <motion.path
                   key={`neg-${i}`}
-                  d={`M${-50 - i * 4} ${yStart} Q${cpX} ${cpY}, ${xEnd} ${yEnd}`}
-                  stroke={i % 4 === 0 ? 'rgba(232,83,30,0.15)' : 'rgba(193,196,200,0.18)'}
-                  strokeWidth={0.6 + i * 0.06}
-                  fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 0.1 + i * 0.015 }}
+                  d={`M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`}
+                  stroke="currentColor"
+                  strokeWidth={0.5 + i * 0.03}
+                  strokeOpacity={0.1 + i * 0.03}
+                  initial={{ pathLength: 0.3, opacity: 0.6 }}
+                  animate={{
+                    pathLength: 1,
+                    opacity: [0.3, 0.6, 0.3],
+                    pathOffset: [0, 1, 0],
+                  }}
                   transition={{
-                    pathLength: { duration: 10 + i * 0.3, ease: 'linear', repeat: Infinity, repeatType: 'loop' as const },
-                    opacity: { duration: 1.2, delay: i * 0.04 },
+                    duration: 20 + Math.random() * 10,
+                    repeat: Infinity,
+                    ease: "linear",
                   }}
                 />
               );
@@ -185,22 +186,25 @@ const Index = () => {
           </svg>
         </div>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(11,11,11,0.3)] via-transparent to-[#0b0b0b] pointer-events-none z-[1]" />
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-[2] text-center px-6"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[1.1] mb-4">
-            <span className="text-[#e8531e]">Capture</span>{' '}
-            <span className="text-[#f5f6f7]">Moments That Last Forever</span>
-          </h1>
-          <p className="text-[#c1c4c8] text-lg md:text-xl tracking-wider italic">
+        <div className="relative z-[2]">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl font-black mb-5 uppercase"
+          >
+            <span className="bg-gradient-to-r from-[#ff4500] via-[#ff6b35] to-[#ff8c42] bg-clip-text text-transparent">Capture</span>{' '}
+            Moments That Last Forever
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-[#c1c4c8] mb-8"
+          >
             Event & Creative Visuals
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
       </section>
 
       {/* Events Covered Section */}
