@@ -122,6 +122,7 @@ export default function DomeGallery({
   const autoRotateRAF = useRef<number | null>(null);
   const scrollLockedRef = useRef(false);
   const lockedRadiusRef = useRef<number | null>(null);
+  const axisLockedRef = useRef<'horizontal' | 'vertical' | null>(null);
 
   const lockScroll = useCallback(() => {
     if (scrollLockedRef.current) return;
@@ -223,12 +224,26 @@ export default function DomeGallery({
       draggingRef.current = true; movedRef.current = false;
       startRotRef.current = { ...rotationRef.current };
       startPosRef.current = { x: evt.clientX, y: evt.clientY };
+      axisLockedRef.current = null;
     },
     onDrag: ({ event, last, velocity = [0, 0], direction = [0, 0], movement }) => {
       if (focusedElRef.current || !draggingRef.current || !startPosRef.current) return;
       const evt = event as PointerEvent;
       const dxTotal = evt.clientX - startPosRef.current.x;
       const dyTotal = evt.clientY - startPosRef.current.y;
+
+      // Axis locking for touch: if first significant movement is vertical, cancel drag and allow scroll
+      if (!axisLockedRef.current && (dxTotal * dxTotal + dyTotal * dyTotal > 64)) {
+        if (Math.abs(dyTotal) > Math.abs(dxTotal) * 1.2) {
+          axisLockedRef.current = 'vertical';
+          draggingRef.current = false;
+          movedRef.current = false;
+          return;
+        }
+        axisLockedRef.current = 'horizontal';
+      }
+      if (axisLockedRef.current === 'vertical') return;
+
       if (!movedRef.current && dxTotal * dxTotal + dyTotal * dyTotal > 16) movedRef.current = true;
       const nextX = clamp(startRotRef.current.x - dyTotal / dragSensitivity, -maxVerticalRotationDeg, maxVerticalRotationDeg);
       const nextY = wrapAngleSigned(startRotRef.current.y + dxTotal / dragSensitivity);
