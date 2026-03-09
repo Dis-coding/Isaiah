@@ -139,12 +139,15 @@ const Index = () => {
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice">
             <title>Background Paths</title>
             {Array.from({ length: 36 }, (_, i) => {
-              const spread = i * 12;
-              const curveOffset = i * 8;
+              const yStart = 300 + i * 8;
+              const cpX = 400 + i * 10;
+              const cpY = 500 + i * 6;
+              const xEnd = 1300 + i * 10;
+              const yEnd = 850 + i * 5;
               return (
                 <motion.path
                   key={`pos-${i}`}
-                  d={`M${1400 + spread} ${800 + curveOffset} Q${600 - i * 15} ${400 + i * 5}, ${-400 - spread} ${-200 - curveOffset}`}
+                  d={`M${-100 - i * 5} ${yStart} Q${cpX} ${cpY}, ${xEnd} ${yEnd}`}
                   stroke={i % 3 === 0 ? 'rgba(232,83,30,0.25)' : 'rgba(193,196,200,0.3)'}
                   strokeWidth={0.8 + i * 0.08}
                   fill="none"
@@ -158,12 +161,15 @@ const Index = () => {
               );
             })}
             {Array.from({ length: 36 }, (_, i) => {
-              const spread = i * 12;
-              const curveOffset = i * 8;
+              const yStart = 350 + i * 7;
+              const cpX = 500 + i * 8;
+              const cpY = 550 + i * 5;
+              const xEnd = 1400 + i * 8;
+              const yEnd = 900 + i * 4;
               return (
                 <motion.path
                   key={`neg-${i}`}
-                  d={`M${-200 - spread} ${800 + curveOffset} Q${600 + i * 15} ${400 - i * 5}, ${1400 + spread} ${-200 - curveOffset}`}
+                  d={`M${-50 - i * 4} ${yStart} Q${cpX} ${cpY}, ${xEnd} ${yEnd}`}
                   stroke={i % 4 === 0 ? 'rgba(232,83,30,0.15)' : 'rgba(193,196,200,0.18)'}
                   strokeWidth={0.6 + i * 0.06}
                   fill="none"
