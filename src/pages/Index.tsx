@@ -351,69 +351,92 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 overflow-hidden">
-        <div className="text-center mb-12 px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f5f6f7] mb-3">
-            What Clients Say
-          </h2>
-          <p className="text-[#c1c4c8] max-w-md mx-auto">
-            Real feedback from real people who trusted me with their precious moments
-          </p>
-        </div>
+      <section className="bg-[#2b2e33] text-[#f5f6f7] py-24 px-0">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 text-center">
+          <div className="flex flex-col items-center gap-8 px-4">
+            <h2 className="max-w-[720px] text-5xl font-semibold leading-tight">
+              What Clients Say
+            </h2>
+            <p className="text-xl max-w-[600px] font-medium text-[#c1c4c8]">
+              Real feedback from real people who trusted me with their precious moments
+            </p>
+          </div>
 
-        {/* First Row - Moving Right to Left */}
-        <div className="relative w-full mb-4">
-          <div className="flex animate-marquee-left" style={{ width: 'max-content' }}>
-            {[...Array(3)].flatMap((_, setIndex) =>
-              testimonials.map((testimonial, i) => (
-                <div
-                  key={`r1-${setIndex}-${i}`}
-                  className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
-                  style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                    <div>
-                      <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
-                      {testimonial.author.handle && (
-                        <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
-                      )}
+          {/* First Row - Moving Right to Left */}
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+            <div className="group flex overflow-hidden p-2 gap-4 mb-4">
+              <div className="flex shrink-0 justify-around gap-4 animate-marquee-left group-hover:pause-animation">
+                {[...Array(3)].map((_, setIndex) => (
+                  testimonials.map((testimonial, i) => (
+                    <div
+                      key={`row1-${setIndex}-${i}`}
+                      className="flex flex-col rounded-lg border border-[rgba(193,196,200,0.25)] bg-gradient-to-b from-[rgba(245,246,247,0.08)] to-[rgba(245,246,247,0.02)] p-6 text-start max-w-[320px] hover:from-[rgba(245,246,247,0.12)] hover:to-[rgba(245,246,247,0.04)] transition-colors duration-300"
+                    >
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={testimonial.author.avatar} 
+                          alt={testimonial.author.name}
+                          className="h-12 w-12 rounded-full object-cover"
+                        />
+                        <div className="flex flex-col items-start">
+                          <h3 className="text-md font-semibold leading-none">
+                            {testimonial.author.name}
+                          </h3>
+                          {testimonial.author.handle && (
+                            <p className="text-sm text-[#c1c4c8]">
+                              {testimonial.author.handle}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      <p className="mt-4 text-sm text-[#c1c4c8]">
+                        {testimonial.text}
+                      </p>
                     </div>
-                  </div>
-                  <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
-                </div>
-              ))
-            )}
+                  ))
+                ))}
+              </div>
+            </div>
+
+            {/* Second Row - Moving Left to Right */}
+            <div className="group flex overflow-hidden p-2 gap-4">
+              <div className="flex shrink-0 justify-around gap-4 animate-marquee-right group-hover:pause-animation">
+                {[...Array(3)].map((_, setIndex) => (
+                  testimonials2.map((testimonial, i) => (
+                    <div
+                      key={`row2-${setIndex}-${i}`}
+                      className="flex flex-col rounded-lg border border-[rgba(193,196,200,0.25)] bg-gradient-to-b from-[rgba(245,246,247,0.08)] to-[rgba(245,246,247,0.02)] p-6 text-start max-w-[320px] hover:from-[rgba(245,246,247,0.12)] hover:to-[rgba(245,246,247,0.04)] transition-colors duration-300"
+                    >
+                      <div className="flex items-center gap-3">
+                        <img 
+                          src={testimonial.author.avatar} 
+                          alt={testimonial.author.name}
+                          className="h-12 w-12 rounded-full object-cover"
+                        />
+                        <div className="flex flex-col items-start">
+                          <h3 className="text-md font-semibold leading-none">
+                            {testimonial.author.name}
+                          </h3>
+                          {testimonial.author.handle && (
+                            <p className="text-sm text-[#c1c4c8]">
+                              {testimonial.author.handle}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      <p className="mt-4 text-sm text-[#c1c4c8]">
+                        {testimonial.text}
+                      </p>
+                    </div>
+                  ))
+                ))}
+              </div>
+            </div>
+
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#2b2e33]" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#2b2e33]" />
           </div>
         </div>
-
-        {/* Second Row - Moving Left to Right */}
-        <div className="relative w-full">
-          <div className="flex animate-marquee-right" style={{ width: 'max-content' }}>
-            {[...Array(3)].flatMap((_, setIndex) =>
-              testimonials2.map((testimonial, i) => (
-                <div
-                  key={`r2-${setIndex}-${i}`}
-                  className="w-[340px] shrink-0 mx-2 p-5 rounded-xl border border-[rgba(193,196,200,0.1)]"
-                  style={{ background: 'rgba(43,46,51,0.4)', backdropFilter: 'blur(10px)' }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <img src={testimonial.author.avatar} alt={testimonial.author.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
-                    <div>
-                      <p className="text-sm font-semibold text-[#f5f6f7]">{testimonial.author.name}</p>
-                      {testimonial.author.handle && (
-                        <p className="text-xs text-[#c1c4c8]">{testimonial.author.handle}</p>
-                      )}
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#c1c4c8] leading-relaxed">{testimonial.text}</p>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-
-        <div className="h-px bg-[rgba(193,196,200,0.1)] mt-16 max-w-6xl mx-auto" />
       </section>
 
       {/* Footer */}
