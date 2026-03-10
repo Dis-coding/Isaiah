@@ -265,24 +265,17 @@ const Index = () => {
       )}
 
       {/* About Section */}
-      <section id="about" className="px-6 py-20 md:px-12 lg:px-20 lg:py-28">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#f5f6f7] mb-6">About Me</h2>
-            <p className="text-[#c1c4c8] leading-relaxed text-lg">
-              From intimate gatherings to large-scale productions, SV focuses on
-              emotion, movement, and atmosphere — delivering imagery that feels
-              alive long after the moment has passed.
-            </p>
-          </div>
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=800"
-              alt="Photographer at work"
-              className="w-full rounded-[20px] object-cover aspect-[4/5]"
-              loading="lazy"
-            />
-          </div>
+      <section id="about" className="relative flex min-h-[600px] overflow-hidden bg-[#2b2e33] text-[#f5f6f7]">
+        <div className="flex-1 px-[10%] py-32 flex flex-col justify-center z-[2]">
+          <h2 className="text-5xl mb-8">About Me</h2>
+          <p className="text-lg leading-relaxed max-w-[500px] text-[#c1c4c8]">
+            From intimate gatherings to large-scale productions, SV focuses on
+            emotion, movement, and atmosphere — delivering imagery that feels
+            alive long after the moment has passed.
+          </p>
+        </div>
+        <div className="flex-1 relative" style={{ clipPath: 'polygon(18% 0, 100% 0, 100% 100%, 0% 100%)' }}>
+          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200" alt="SV Portrait" className="w-full h-full object-cover" />
         </div>
       </section>
 
@@ -300,34 +293,36 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="px-6 py-20 md:px-12 lg:px-20 lg:py-28">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#f5f6f7] mb-12">Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[rgba(43,46,51,0.4)] border border-[rgba(193,196,200,0.1)] rounded-[20px] p-8 transition-colors hover:border-[rgba(193,196,200,0.25)]">
-              <h3 className="text-lg font-bold text-[#f5f6f7] mb-4">What We Do</h3>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed mb-2">
+      <section id="services" className="py-32 bg-[#2b2e33]">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-center text-4xl font-bold mb-20 text-[#f5f6f7]">Services</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">What We Do</h3>
+              <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Thoughtful photography for brands and people who want more than just a photo.
               </p>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed">
+              <p className="text-[#c1c4c8] leading-relaxed">
                 A feeling, a story, and a lasting impression.
               </p>
             </div>
-            <div className="bg-[rgba(43,46,51,0.4)] border border-[rgba(193,196,200,0.1)] rounded-[20px] p-8 transition-colors hover:border-[rgba(193,196,200,0.25)]">
-              <h3 className="text-lg font-bold text-[#f5f6f7] mb-4">How It Feels</h3>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed mb-2">
+            
+            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">How It Feels</h3>
+              <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Calm. Effortless. Confidence-building.
               </p>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed">
+              <p className="text-[#c1c4c8] leading-relaxed">
                 The process is just as important as the final image — and it should feel good from start to finish.
               </p>
             </div>
-            <div className="bg-[rgba(43,46,51,0.4)] border border-[rgba(193,196,200,0.1)] rounded-[20px] p-8 transition-colors hover:border-[rgba(193,196,200,0.25)]">
-              <h3 className="text-lg font-bold text-[#f5f6f7] mb-4">Where we're Headed</h3>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed mb-2">
+            
+            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">Where we're Headed</h3>
+              <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Always evolving. Always refining.
               </p>
-              <p className="text-[#c1c4c8] text-sm leading-relaxed">
+              <p className="text-[#c1c4c8] leading-relaxed">
                 The goal isn't trends — it's timeless work that grows with you.
               </p>
             </div>
