@@ -96,40 +96,31 @@ const Index = () => {
     <div className="min-h-screen bg-[#0b0b0b] text-[#f5f6f7] font-['Inter',sans-serif]">
 
       {/* Glass Header Navigation with Logo */}
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-[1000]">
-        <nav
-          className="flex items-center gap-6 md:gap-8 px-8 py-3 rounded-full border border-[rgba(193,196,200,0.2)]"
-          style={{
-            background: 'rgba(43, 46, 51, 0.6)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)',
-          }}
-        >
-          <a href="#home" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
+      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-8 py-4 w-fit max-w-[90%] rounded-full bg-[rgba(43,46,51,0.6)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] transition-all duration-300 hover:backdrop-blur-[25px]" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6), inset 0 0 20px rgba(193,196,200,0.05)' }}>
+        <nav className="flex items-center gap-8 relative z-[1]">
+          <a href="#hero" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             Home
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#c1c4c8] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
           <a href="#about" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             About
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#c1c4c8] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
-
+          
           {/* Logo in navbar */}
-          <a href="#home" className="mx-2 text-[#f5f6f7] font-bold text-xl tracking-wider transition-all duration-300 hover:text-[#c1c4c8]">
-            SV
+          <a href="#hero" className="no-underline">
+            <h1 className="font-['Montserrat'] text-[1.8rem] font-[600] tracking-wider uppercase transition-all duration-300 cursor-pointer hover:text-[#c1c4c8] px-4" style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}>
+              SV
+            </h1>
           </a>
-
+          
           <a href="#services" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             Services
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#c1c4c8] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group bg-transparent border-none cursor-pointer"
-          >
+          <button onClick={() => setIsModalOpen(true)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group bg-transparent border-none cursor-pointer">
             Contact
-            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-[#c1c4c8] transition-all duration-300 group-hover:w-full" />
+            <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </button>
         </nav>
       </header>
