@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Camera, Users, Star, Instagram } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Camera, Users, Star, Instagram, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import DomeGallery from '@/components/DomeGallery';
 import TikTokIcon from '@/components/TikTokIcon';
 
@@ -25,6 +25,7 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const bookingFormRef = useRef<HTMLFormElement | null>(null);
 
   const events: Event[] = [
@@ -98,11 +99,12 @@ const Index = () => {
       {/* Glass Header Navigation with Logo */}
       <header className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-7 py-2.5 w-fit max-w-[90%] rounded-full bg-[rgba(43,46,51,0.6)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] transition-all duration-300 hover:backdrop-blur-[25px]" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6), inset 0 0 20px rgba(193,196,200,0.05)' }}>
         <nav className="flex items-center gap-8 relative z-[1]">
-          <a href="#hero" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
+          {/* Desktop nav links - left */}
+          <a href="#hero" className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             Home
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
-          <a href="#about" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
+          <a href="#about" className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             About
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
@@ -114,16 +116,44 @@ const Index = () => {
             </h1>
           </a>
           
-          <a href="#services" className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
+          {/* Desktop nav links - right */}
+          <a href="#services" className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
             Services
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </a>
-          <button onClick={() => setIsModalOpen(true)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group bg-transparent border-none cursor-pointer">
+          <button onClick={() => setIsModalOpen(true)} className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group bg-transparent border-none cursor-pointer">
             Contact
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </button>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-[#f5f6f7] bg-transparent border-none cursor-pointer p-1"
+          >
+            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </nav>
       </header>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-20 left-1/2 -translate-x-1/2 z-[999] w-[80%] max-w-[300px] rounded-2xl bg-[rgba(43,46,51,0.95)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] p-6 flex flex-col gap-5 md:hidden"
+            style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
+          >
+            <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider text-lg">Home</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider text-lg">About</a>
+            <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider text-lg">Services</a>
+            <button onClick={() => { setIsMobileMenuOpen(false); setIsModalOpen(true); }} className="no-underline text-[#f5f6f7] font-semibold tracking-wider text-lg bg-transparent border-none cursor-pointer text-left p-0">Contact</button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section id="hero" className="relative overflow-hidden h-screen flex justify-center items-center text-center bg-[#2b2e33]">
