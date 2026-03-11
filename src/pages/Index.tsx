@@ -97,7 +97,7 @@ const Index = () => {
     <div className="min-h-screen bg-[#0b0b0b] text-[#f5f6f7] font-['Inter',sans-serif]">
 
       {/* Glass Header Navigation with Logo - no bubble on mobile */}
-      <header className="fixed top-7 md:top-5 left-1/2 -translate-x-1/2 z-[1000] px-7 py-2.5 w-fit max-w-[90%] transition-all duration-300 md:rounded-full md:bg-[rgba(43,46,51,0.6)] md:backdrop-blur-[20px] md:border md:border-[rgba(193,196,200,0.25)] md:hover:backdrop-blur-[25px] md:[box-shadow:0_8px_32px_rgba(0,0,0,0.6),inset_0_0_20px_rgba(193,196,200,0.05)]">
+      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-7 py-2.5 w-fit max-w-[90%] transition-all duration-300 md:rounded-full md:bg-[rgba(43,46,51,0.6)] md:backdrop-blur-[20px] md:border md:border-[rgba(193,196,200,0.25)] md:hover:backdrop-blur-[25px] md:[box-shadow:0_8px_32px_rgba(0,0,0,0.6),inset_0_0_20px_rgba(193,196,200,0.05)]">
         <nav className="flex items-center gap-8 relative z-[1]">
           {/* Desktop nav links - left */}
           <a href="#hero" className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
