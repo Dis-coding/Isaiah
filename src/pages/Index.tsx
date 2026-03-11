@@ -96,8 +96,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#0b0b0b] text-[#f5f6f7] font-['Inter',sans-serif]">
 
-      {/* Glass Header Navigation with Logo */}
-      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-7 py-2.5 w-fit max-w-[90%] rounded-full bg-[rgba(43,46,51,0.6)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] transition-all duration-300 hover:backdrop-blur-[25px]" style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6), inset 0 0 20px rgba(193,196,200,0.05)' }}>
+      {/* Glass Header Navigation with Logo - no bubble on mobile */}
+      <header className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] px-7 py-2.5 w-fit max-w-[90%] transition-all duration-300 md:rounded-full md:bg-[rgba(43,46,51,0.6)] md:backdrop-blur-[20px] md:border md:border-[rgba(193,196,200,0.25)] md:hover:backdrop-blur-[25px] md:[box-shadow:0_8px_32px_rgba(0,0,0,0.6),inset_0_0_20px_rgba(193,196,200,0.05)]">
         <nav className="flex items-center gap-8 relative z-[1]">
           {/* Desktop nav links - left */}
           <a href="#hero" className="hidden md:inline no-underline text-[#f5f6f7] font-semibold tracking-wider transition-all duration-300 relative hover:text-[#c1c4c8] group">
@@ -125,16 +125,16 @@ const Index = () => {
             Contact
             <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-[#c1c4c8] scale-x-0 transition-transform duration-300 origin-right group-hover:scale-x-100 group-hover:origin-left"></span>
           </button>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-[#f5f6f7] bg-transparent border-none cursor-pointer p-1"
-          >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </nav>
       </header>
+
+      {/* Mobile hamburger - pinned top-right, standalone */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="fixed top-7 right-5 z-[1001] md:hidden text-[#f5f6f7] bg-transparent border-none cursor-pointer p-1"
+      >
+        {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
       {/* Mobile Menu Dropdown */}
       <AnimatePresence>
@@ -144,7 +144,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 left-1/2 -translate-x-1/2 z-[999] w-[80%] max-w-[300px] rounded-2xl bg-[rgba(43,46,51,0.95)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] p-6 flex flex-col gap-5 md:hidden"
+            className="fixed top-16 right-5 z-[999] w-[200px] rounded-2xl bg-[rgba(43,46,51,0.95)] backdrop-blur-[20px] border border-[rgba(193,196,200,0.25)] p-6 flex flex-col gap-5 md:hidden"
             style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.6)' }}
           >
             <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className="no-underline text-[#f5f6f7] font-semibold tracking-wider text-lg">Home</a>
