@@ -25,6 +25,7 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const bookingFormRef = useRef<HTMLFormElement | null>(null);
 
   const events: Event[] = [
