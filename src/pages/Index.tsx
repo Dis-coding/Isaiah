@@ -131,7 +131,7 @@ const Index = () => {
       {/* Mobile hamburger - pinned top-right, standalone */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="fixed top-7 right-5 z-[1001] md:hidden text-[#f5f6f7] bg-transparent border-none cursor-pointer p-1"
+        className="fixed top-5 right-5 z-[1001] md:hidden text-[#f5f6f7] bg-transparent border-none cursor-pointer p-1"
       >
         {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
