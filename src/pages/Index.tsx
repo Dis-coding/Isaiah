@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Camera, Users, Star, Instagram } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Camera, Users, Star, Instagram, Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import DomeGallery from '@/components/DomeGallery';
 import TikTokIcon from '@/components/TikTokIcon';
 
