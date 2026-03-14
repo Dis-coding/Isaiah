@@ -295,17 +295,17 @@ const Index = () => {
       )}
 
       {/* About Section */}
-      <section id="about" className="relative flex min-h-[600px] overflow-hidden bg-[#2b2e33] text-[#f5f6f7]">
-        <div className="flex-1 px-[10%] py-32 flex flex-col justify-center z-[2]">
-          <h2 className="text-5xl mb-8">About Me</h2>
-          <p className="text-lg leading-relaxed max-w-[500px] text-[#c1c4c8]">
+      <section id="about" className="relative flex flex-col md:flex-row min-h-[400px] md:min-h-[600px] overflow-hidden bg-[#2b2e33] text-[#f5f6f7]">
+        <div className="flex-1 px-6 md:px-[10%] py-16 md:py-32 flex flex-col justify-center z-[2]">
+          <h2 className="text-3xl md:text-5xl mb-4 md:mb-8">About Me</h2>
+          <p className="text-base md:text-lg leading-relaxed max-w-[500px] text-[#c1c4c8]">
             From intimate gatherings to large-scale productions, SV focuses on
             emotion, movement, and atmosphere — delivering imagery that feels
             alive long after the moment has passed.
           </p>
         </div>
-        <div className="flex-1 relative" style={{ clipPath: 'polygon(18% 0, 100% 0, 100% 100%, 0% 100%)' }}>
-          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200" alt="SV Portrait" className="w-full h-full object-cover" />
+        <div className="flex-1 relative min-h-[250px] md:min-h-0" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}>
+          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200" alt="SV Portrait" className="w-full h-full object-cover md:[clip-path:polygon(18%_0,100%_0,100%_100%,0%_100%)]" />
         </div>
       </section>
 
