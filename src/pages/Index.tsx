@@ -323,9 +323,9 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 bg-[#2b2e33]">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-center text-4xl font-bold mb-20 text-[#f5f6f7]">Services</h2>
+      <section id="services" className="py-16 md:py-32 bg-[#2b2e33]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <h2 className="text-center text-3xl md:text-4xl font-bold mb-10 md:mb-20 text-[#f5f6f7]">Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">What We Do</h3>
