@@ -513,7 +513,7 @@ const Index = () => {
         className={`fixed inset-0 z-[1999] transition-all duration-300 ${isModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       />
       <div
-        className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-20 right-4 md:bottom-24 md:right-8 z-[2000] w-[calc(100vw-2rem)] md:w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
           background: 'rgba(43,46,51,0.95)',
           backdropFilter: 'blur(30px)',
