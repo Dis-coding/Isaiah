@@ -214,7 +214,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-black mb-5 uppercase"
+            className="text-3xl md:text-5xl font-black mb-5 uppercase px-4"
           >
             <span className="bg-gradient-to-r from-[#ff4500] via-[#ff6b35] to-[#ff8c42] bg-clip-text text-transparent">Capture</span>{' '}
             Moments That Last Forever
@@ -231,8 +231,8 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="bg-gradient-to-t from-[#2b2e33] to-[#7b7f85] py-32 w-full relative z-[1]">
-        <h2 className="text-3xl font-semibold tracking-wider -mt-16 pl-[3vw] text-[#f5f5f5] uppercase relative">Events Covered</h2>
+      <section className="bg-gradient-to-t from-[#2b2e33] to-[#7b7f85] py-16 md:py-32 w-full relative z-[1]">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-wider -mt-8 md:-mt-16 pl-[3vw] text-[#f5f5f5] uppercase relative">Events Covered</h2>
         <div className="flex gap-8 px-[5vw] py-12 overflow-x-auto -ml-[4vw] scrollbar-hide card-container">
           {events.map((event, index) => (
             <article 
@@ -295,17 +295,17 @@ const Index = () => {
       )}
 
       {/* About Section */}
-      <section id="about" className="relative flex min-h-[600px] overflow-hidden bg-[#2b2e33] text-[#f5f6f7]">
-        <div className="flex-1 px-[10%] py-32 flex flex-col justify-center z-[2]">
-          <h2 className="text-5xl mb-8">About Me</h2>
-          <p className="text-lg leading-relaxed max-w-[500px] text-[#c1c4c8]">
+      <section id="about" className="relative flex flex-col md:flex-row min-h-[400px] md:min-h-[600px] overflow-hidden bg-[#2b2e33] text-[#f5f6f7]">
+        <div className="flex-1 px-6 md:px-[10%] py-16 md:py-32 flex flex-col justify-center z-[2]">
+          <h2 className="text-3xl md:text-5xl mb-4 md:mb-8">About Me</h2>
+          <p className="text-base md:text-lg leading-relaxed max-w-[500px] text-[#c1c4c8]">
             From intimate gatherings to large-scale productions, SV focuses on
             emotion, movement, and atmosphere — delivering imagery that feels
             alive long after the moment has passed.
           </p>
         </div>
-        <div className="flex-1 relative" style={{ clipPath: 'polygon(18% 0, 100% 0, 100% 100%, 0% 100%)' }}>
-          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200" alt="SV Portrait" className="w-full h-full object-cover" />
+        <div className="flex-1 relative min-h-[250px] md:min-h-0" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}>
+          <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=1200" alt="SV Portrait" className="w-full h-full object-cover md:[clip-path:polygon(18%_0,100%_0,100%_100%,0%_100%)]" />
         </div>
       </section>
 
@@ -323,11 +323,11 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 bg-[#2b2e33]">
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-center text-4xl font-bold mb-20 text-[#f5f6f7]">Services</h2>
+      <section id="services" className="py-16 md:py-32 bg-[#2b2e33]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <h2 className="text-center text-3xl md:text-4xl font-bold mb-10 md:mb-20 text-[#f5f6f7]">Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-6 md:p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">What We Do</h3>
               <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Thoughtful photography for brands and people who want more than just a photo.
@@ -337,7 +337,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-6 md:p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">How It Feels</h3>
               <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Calm. Effortless. Confidence-building.
@@ -347,7 +347,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+            <div className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-6 md:p-10 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
               <h3 className="text-2xl font-bold mb-6 text-[#f5f6f7]">Where we're Headed</h3>
               <p className="text-[#c1c4c8] mb-4 leading-relaxed">
                 Always evolving. Always refining.
@@ -361,19 +361,19 @@ const Index = () => {
       </section>
 
       {/* Proof Stats Section */}
-      <section className="py-32 bg-[#2b2e33]">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-center text-4xl font-bold mb-16">Trusted by Hundreds</h2>
-          <div className="grid grid-cols-3 gap-8">
+      <section className="py-16 md:py-32 bg-[#2b2e33]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <h2 className="text-center text-2xl md:text-4xl font-bold mb-8 md:mb-16">Trusted by Hundreds</h2>
+          <div className="grid grid-cols-3 gap-3 md:gap-8">
             {[
-              { icon: <Users className="w-8 h-8" />, value: '80+', label: 'Happy Clients' },
-              { icon: <Camera className="w-8 h-8" />, value: '100+', label: 'Projects Completed' },
-              { icon: <Star className="w-8 h-8" />, value: '4.0', label: 'Average Rating' }
+              { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, value: '80+', label: 'Happy Clients' },
+              { icon: <Camera className="w-6 h-6 md:w-8 md:h-8" />, value: '100+', label: 'Projects Completed' },
+              { icon: <Star className="w-6 h-6 md:w-8 md:h-8" />, value: '4.0', label: 'Average Rating' }
             ].map((stat, i) => (
-              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="flex justify-center text-[#c1c4c8] mb-3">{stat.icon}</div>
-                <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm text-[#c1c4c8]">{stat.label}</div>
+              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[12px] md:rounded-[20px] p-4 md:p-8 text-center hover:shadow-lg transition-shadow">
+                <div className="flex justify-center text-[#c1c4c8] mb-2 md:mb-3">{stat.icon}</div>
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{stat.value}</div>
+                <div className="text-xs md:text-sm text-[#c1c4c8]">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -381,13 +381,13 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-[#2b2e33] text-[#f5f6f7] py-24 px-0">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 text-center">
-          <div className="flex flex-col items-center gap-8 px-4">
-            <h2 className="max-w-[720px] text-5xl font-semibold leading-tight">
+      <section className="bg-[#2b2e33] text-[#f5f6f7] py-12 md:py-24 px-0">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 md:gap-16 text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-8 px-4">
+            <h2 className="max-w-[720px] text-3xl md:text-5xl font-semibold leading-tight">
               What Clients Say
             </h2>
-            <p className="text-xl max-w-[600px] font-medium text-[#c1c4c8]">
+            <p className="text-base md:text-xl max-w-[600px] font-medium text-[#c1c4c8]">
               Real feedback from real people who trusted me with their precious moments
             </p>
           </div>
@@ -501,7 +501,7 @@ const Index = () => {
           setIsModalOpen(true);
           setIsSubmitted(false);
         }}
-        className="fixed bottom-8 right-8 bg-[rgba(245,246,247,0.1)] backdrop-blur-md border-2 border-[rgba(245,246,247,0.3)] text-[#f5f6f7] px-7 py-4 rounded-full font-bold tracking-wider cursor-pointer z-[999] transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(245,246,247,0.2)] hover:border-[rgba(245,246,247,0.5)] hover:shadow-[0_12px_30px_rgba(255,255,255,0.3)] animate-[fadeInUp_0.8s_ease_forwards]"
+        className="fixed bottom-6 right-4 md:bottom-8 md:right-8 bg-[rgba(245,246,247,0.1)] backdrop-blur-md border-2 border-[rgba(245,246,247,0.3)] text-[#f5f6f7] px-5 py-3 md:px-7 md:py-4 rounded-full font-bold tracking-wider cursor-pointer z-[999] transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(245,246,247,0.2)] hover:border-[rgba(245,246,247,0.5)] hover:shadow-[0_12px_30px_rgba(255,255,255,0.3)] animate-[fadeInUp_0.8s_ease_forwards] text-sm md:text-base"
         style={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)' }}
       >
         Book
@@ -513,7 +513,7 @@ const Index = () => {
         className={`fixed inset-0 z-[1999] transition-all duration-300 ${isModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       />
       <div
-        className={`fixed bottom-24 right-8 z-[2000] w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-20 right-4 md:bottom-24 md:right-8 z-[2000] w-[calc(100vw-2rem)] md:w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
           background: 'rgba(43,46,51,0.95)',
           backdropFilter: 'blur(30px)',
