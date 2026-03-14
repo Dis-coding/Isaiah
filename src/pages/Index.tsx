@@ -361,19 +361,19 @@ const Index = () => {
       </section>
 
       {/* Proof Stats Section */}
-      <section className="px-6 py-20 md:px-12 lg:px-20 lg:py-28">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#f5f6f7] mb-12">Trusted by Hundreds</h2>
+      <section className="py-32 bg-[#2b2e33]">
+        <div className="max-w-6xl mx-auto px-8">
+          <h2 className="text-center text-4xl font-bold mb-16">Trusted by Hundreds</h2>
           <div className="grid grid-cols-3 gap-8">
             {[
-              { icon: <Users size={28} strokeWidth={1.5} />, value: '80+', label: 'Happy Clients' },
-              { icon: <Camera size={28} strokeWidth={1.5} />, value: '100+', label: 'Projects Completed' },
-              { icon: <Star size={28} strokeWidth={1.5} />, value: '4.0', label: 'Average Rating' },
+              { icon: <Users className="w-8 h-8" />, value: '80+', label: 'Happy Clients' },
+              { icon: <Camera className="w-8 h-8" />, value: '100+', label: 'Projects Completed' },
+              { icon: <Star className="w-8 h-8" />, value: '4.0', label: 'Average Rating' }
             ].map((stat, i) => (
-              <div key={i}>
-                <div className="text-[#c1c4c8] mb-3 flex justify-center">{stat.icon}</div>
-                <p className="text-3xl md:text-4xl font-bold text-[#f5f6f7]">{stat.value}</p>
-                <p className="text-sm text-[#c1c4c8] mt-1">{stat.label}</p>
+              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-8 text-center hover:shadow-lg transition-shadow">
+                <div className="flex justify-center text-[#c1c4c8] mb-3">{stat.icon}</div>
+                <div className="text-4xl font-bold mb-2">{stat.value}</div>
+                <div className="text-sm text-[#c1c4c8]">{stat.label}</div>
               </div>
             ))}
           </div>
