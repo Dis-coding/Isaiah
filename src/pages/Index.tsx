@@ -231,8 +231,8 @@ const Index = () => {
       </section>
 
       {/* Events Covered Section */}
-      <section className="bg-gradient-to-t from-[#2b2e33] to-[#7b7f85] py-32 w-full relative z-[1]">
-        <h2 className="text-3xl font-semibold tracking-wider -mt-16 pl-[3vw] text-[#f5f5f5] uppercase relative">Events Covered</h2>
+      <section className="bg-gradient-to-t from-[#2b2e33] to-[#7b7f85] py-16 md:py-32 w-full relative z-[1]">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-wider -mt-8 md:-mt-16 pl-[3vw] text-[#f5f5f5] uppercase relative">Events Covered</h2>
         <div className="flex gap-8 px-[5vw] py-12 overflow-x-auto -ml-[4vw] scrollbar-hide card-container">
           {events.map((event, index) => (
             <article 
