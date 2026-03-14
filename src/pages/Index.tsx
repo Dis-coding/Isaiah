@@ -310,7 +310,7 @@ const Index = () => {
       </section>
 
       {/* Dome Gallery Section */}
-      <section className="relative h-[80vh] md:h-screen">
+      <section className="relative h-[80vh] md:h-screen bg-[#2b2e33]">
         <DomeGallery
           images={galleryImages}
           fit={0.55}
