@@ -214,7 +214,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-black mb-5 uppercase"
+            className="text-3xl md:text-5xl font-black mb-5 uppercase px-4"
           >
             <span className="bg-gradient-to-r from-[#ff4500] via-[#ff6b35] to-[#ff8c42] bg-clip-text text-transparent">Capture</span>{' '}
             Moments That Last Forever
