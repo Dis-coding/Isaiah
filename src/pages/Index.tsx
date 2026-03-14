@@ -240,7 +240,6 @@ const Index = () => {
               onClick={() => setSelectedEvent(event)}
               className="event-card relative flex flex-col justify-end w-[420px] min-w-[260px] aspect-[4/5] rounded-[20px] overflow-hidden bg-[#2b2e33] isolate cursor-pointer" 
               style={{ 
-                boxShadow: '0 8px 20px rgba(255, 255, 255, 0.15)',
                 marginLeft: index > 0 ? '-130px' : '0'
               }}
             >
