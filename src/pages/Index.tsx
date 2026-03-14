@@ -470,7 +470,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8 text-center">
+      <footer className="px-6 py-8 text-center bg-[#2b2e33]">
         <div className="flex items-center justify-center gap-6 mb-4">
           <a
             href="https://www.instagram.com/s8iah.visuals/"
