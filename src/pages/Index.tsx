@@ -361,19 +361,19 @@ const Index = () => {
       </section>
 
       {/* Proof Stats Section */}
-      <section className="py-32 bg-[#2b2e33]">
-        <div className="max-w-6xl mx-auto px-8">
-          <h2 className="text-center text-4xl font-bold mb-16">Trusted by Hundreds</h2>
-          <div className="grid grid-cols-3 gap-8">
+      <section className="py-16 md:py-32 bg-[#2b2e33]">
+        <div className="max-w-6xl mx-auto px-4 md:px-8">
+          <h2 className="text-center text-2xl md:text-4xl font-bold mb-8 md:mb-16">Trusted by Hundreds</h2>
+          <div className="grid grid-cols-3 gap-3 md:gap-8">
             {[
-              { icon: <Users className="w-8 h-8" />, value: '80+', label: 'Happy Clients' },
-              { icon: <Camera className="w-8 h-8" />, value: '100+', label: 'Projects Completed' },
-              { icon: <Star className="w-8 h-8" />, value: '4.0', label: 'Average Rating' }
+              { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, value: '80+', label: 'Happy Clients' },
+              { icon: <Camera className="w-6 h-6 md:w-8 md:h-8" />, value: '100+', label: 'Projects Completed' },
+              { icon: <Star className="w-6 h-6 md:w-8 md:h-8" />, value: '4.0', label: 'Average Rating' }
             ].map((stat, i) => (
-              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[20px] p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="flex justify-center text-[#c1c4c8] mb-3">{stat.icon}</div>
-                <div className="text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm text-[#c1c4c8]">{stat.label}</div>
+              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[12px] md:rounded-[20px] p-4 md:p-8 text-center hover:shadow-lg transition-shadow">
+                <div className="flex justify-center text-[#c1c4c8] mb-2 md:mb-3">{stat.icon}</div>
+                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{stat.value}</div>
+                <div className="text-xs md:text-sm text-[#c1c4c8]">{stat.label}</div>
               </div>
             ))}
           </div>
