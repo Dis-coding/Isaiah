@@ -381,13 +381,13 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-[#2b2e33] text-[#f5f6f7] py-24 px-0">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 text-center">
-          <div className="flex flex-col items-center gap-8 px-4">
-            <h2 className="max-w-[720px] text-5xl font-semibold leading-tight">
+      <section className="bg-[#2b2e33] text-[#f5f6f7] py-12 md:py-24 px-0">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 md:gap-16 text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-8 px-4">
+            <h2 className="max-w-[720px] text-3xl md:text-5xl font-semibold leading-tight">
               What Clients Say
             </h2>
-            <p className="text-xl max-w-[600px] font-medium text-[#c1c4c8]">
+            <p className="text-base md:text-xl max-w-[600px] font-medium text-[#c1c4c8]">
               Real feedback from real people who trusted me with their precious moments
             </p>
           </div>
