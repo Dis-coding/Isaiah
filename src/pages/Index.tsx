@@ -501,7 +501,7 @@ const Index = () => {
           setIsModalOpen(true);
           setIsSubmitted(false);
         }}
-        className="fixed bottom-8 right-8 bg-[rgba(245,246,247,0.1)] backdrop-blur-md border-2 border-[rgba(245,246,247,0.3)] text-[#f5f6f7] px-7 py-4 rounded-full font-bold tracking-wider cursor-pointer z-[999] transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(245,246,247,0.2)] hover:border-[rgba(245,246,247,0.5)] hover:shadow-[0_12px_30px_rgba(255,255,255,0.3)] animate-[fadeInUp_0.8s_ease_forwards]"
+        className="fixed bottom-6 right-4 md:bottom-8 md:right-8 bg-[rgba(245,246,247,0.1)] backdrop-blur-md border-2 border-[rgba(245,246,247,0.3)] text-[#f5f6f7] px-5 py-3 md:px-7 md:py-4 rounded-full font-bold tracking-wider cursor-pointer z-[999] transition-all duration-300 hover:-translate-y-1 hover:bg-[rgba(245,246,247,0.2)] hover:border-[rgba(245,246,247,0.5)] hover:shadow-[0_12px_30px_rgba(255,255,255,0.3)] animate-[fadeInUp_0.8s_ease_forwards] text-sm md:text-base"
         style={{ boxShadow: '0 8px 24px rgba(0, 0, 0, 0.5)' }}
       >
         Book
