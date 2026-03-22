@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Camera, Users, Star, Instagram, Menu, X } from 'lucide-react';
+import { Camera, Users, Star, Instagram, Facebook, Youtube, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DomeGallery from '@/components/DomeGallery';
 import TikTokIcon from '@/components/TikTokIcon';
@@ -39,26 +39,36 @@ const Index = () => {
       gallery: ['https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800','https://images.unsplash.com/photo-1511578314322-379afb476865?w=800','https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800','https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=800','https://images.unsplash.com/photo-1560439514-4e9645039924?w=800','https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800','https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800','https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=800','https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800','https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800'] },
     { id: 5, date: 'Feb 25th, 2026', title: 'Music Festival', image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
       gallery: ['https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800','https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800','https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800','https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800','https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800','https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=800','https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800','https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800','https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800','https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800'] },
-    { id: 6, date: 'Feb 25th, 2026', title: 'Fashion Show', image: 'https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=800',
+    { id: 6, date: 'Feb 25th, 2026', title: 'Fashion Show', image: '/Images/Discoding.jpg',
       gallery: ['https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=800','https://images.unsplash.com/photo-1558769132-cb1aea8f82ca?w=800','https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800','https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800','https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800','https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800','https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800','https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800','https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=800','https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=800'] },
   ];
 
   const galleryImages = [
-    'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800',
-    'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800',
-    'https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800',
-    'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800',
-    'https://images.unsplash.com/photo-1445810694374-0a94739e4a03?w=800',
-    'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800',
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800',
-    'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800',
-    'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
-    'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800',
-    'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=800',
-    'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800',
-    'https://images.unsplash.com/photo-1415886541506-6efc5e4b1786?w=800',
-    'https://images.unsplash.com/photo-1496293455970-f8581aae0e3b?w=800',
+    '/Images/Discoding.jpg',
+    '/Images/Photos/IMG_0424 copy.jpg',
+    '/Images/Photos/IMG_0431 copy.jpg',
+    '/Images/Photos/IMG_0464 copy.jpg',
+    '/Images/Photos/IMG_0626.jpg',
+    '/Images/Photos/IMG_0663.jpg',
+    '/Images/Photos/IMG_1042 copy.jpg',
+    '/Images/Photos/IMG_1120 copy.jpg',
+    '/Images/Photos/IMG_1249 copy.jpg',
+    '/Images/Photos/IMG_1550 copy.jpg',
+    '/Images/Photos/IMG_1811 copy.jpg',
+    '/Images/Photos/IMG_3232.jpg',
+    '/Images/Photos/IMG_5561 copy.jpg',
+    '/Images/Photos/IMG_5653 copy.jpg',
+    '/Images/Photos/IMG_6003 copy.jpg',
+    '/Images/Photos/IMG_9163 copy.jpg',
+    '/Images/Photos/IMG_9169 copy.jpg',
+    '/Images/Photos/IMG_9464 copy.jpg',
+    '/Images/Photos/IMG_9499 copy.jpg',
+    '/Images/Photos/IMG_9534 copy.jpg',
+    '/Images/Photos/IMG_9576 copy.jpg',
+    '/Images/Photos/IMG_9604 copy.jpg',
+    '/Images/Photos/IMG_9724 copy.jpg',
+    '/Images/Photos/IMG_9846 copy.jpg',
+
   ];
 
   const testimonials: Testimonial[] = [
@@ -359,139 +369,63 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Proof Stats Section */}
-      <section className="py-16 md:py-32 bg-[#2b2e33]">
-        <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <h2 className="text-center text-2xl md:text-4xl font-bold mb-8 md:mb-16">Trusted by Hundreds</h2>
-          <div className="grid grid-cols-3 gap-3 md:gap-8">
-            {[
-              { icon: <Users className="w-6 h-6 md:w-8 md:h-8" />, value: '80+', label: 'Happy Clients' },
-              { icon: <Camera className="w-6 h-6 md:w-8 md:h-8" />, value: '100+', label: 'Projects Completed' },
-              { icon: <Star className="w-6 h-6 md:w-8 md:h-8" />, value: '4.0', label: 'Average Rating' }
-            ].map((stat, i) => (
-              <div key={i} className="bg-[rgba(245,246,247,0.05)] border border-[rgba(193,196,200,0.25)] rounded-[12px] md:rounded-[20px] p-4 md:p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="flex justify-center text-[#c1c4c8] mb-2 md:mb-3">{stat.icon}</div>
-                <div className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{stat.value}</div>
-                <div className="text-xs md:text-sm text-[#c1c4c8]">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    
 
-      {/* Testimonials Section */}
-      <section className="bg-[#2b2e33] text-[#f5f6f7] py-12 md:py-24 px-0">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 md:gap-16 text-center">
-          <div className="flex flex-col items-center gap-4 md:gap-8 px-4">
-            <h2 className="max-w-[720px] text-3xl md:text-5xl font-semibold leading-tight">
-              What Clients Say
-            </h2>
-            <p className="text-base md:text-xl max-w-[600px] font-medium text-[#c1c4c8]">
-              Real feedback from real people who trusted me with their precious moments
-            </p>
-          </div>
-
-          {/* First Row - Moving Right to Left */}
-          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
-            <div className="group flex overflow-hidden p-2 gap-4 mb-4">
-              <div className="flex shrink-0 justify-around gap-4 animate-marquee-left group-hover:pause-animation">
-                {[...Array(3)].map((_, setIndex) => (
-                  testimonials.map((testimonial, i) => (
-                    <div
-                      key={`row1-${setIndex}-${i}`}
-                      className="flex flex-col rounded-lg border border-[rgba(193,196,200,0.25)] bg-gradient-to-b from-[rgba(245,246,247,0.08)] to-[rgba(245,246,247,0.02)] p-6 text-start max-w-[320px] hover:from-[rgba(245,246,247,0.12)] hover:to-[rgba(245,246,247,0.04)] transition-colors duration-300"
-                    >
-                      <div className="flex items-center gap-3">
-                        <img 
-                          src={testimonial.author.avatar} 
-                          alt={testimonial.author.name}
-                          className="h-12 w-12 rounded-full object-cover"
-                        />
-                        <div className="flex flex-col items-start">
-                          <h3 className="text-md font-semibold leading-none">
-                            {testimonial.author.name}
-                          </h3>
-                          {testimonial.author.handle && (
-                            <p className="text-sm text-[#c1c4c8]">
-                              {testimonial.author.handle}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                      <p className="mt-4 text-sm text-[#c1c4c8]">
-                        {testimonial.text}
-                      </p>
-                    </div>
-                  ))
-                ))}
-              </div>
-            </div>
-
-            {/* Second Row - Moving Left to Right */}
-            <div className="group flex overflow-hidden p-2 gap-4">
-              <div className="flex shrink-0 justify-around gap-4 animate-marquee-right group-hover:pause-animation">
-                {[...Array(3)].map((_, setIndex) => (
-                  testimonials2.map((testimonial, i) => (
-                    <div
-                      key={`row2-${setIndex}-${i}`}
-                      className="flex flex-col rounded-lg border border-[rgba(193,196,200,0.25)] bg-gradient-to-b from-[rgba(245,246,247,0.08)] to-[rgba(245,246,247,0.02)] p-6 text-start max-w-[320px] hover:from-[rgba(245,246,247,0.12)] hover:to-[rgba(245,246,247,0.04)] transition-colors duration-300"
-                    >
-                      <div className="flex items-center gap-3">
-                        <img 
-                          src={testimonial.author.avatar} 
-                          alt={testimonial.author.name}
-                          className="h-12 w-12 rounded-full object-cover"
-                        />
-                        <div className="flex flex-col items-start">
-                          <h3 className="text-md font-semibold leading-none">
-                            {testimonial.author.name}
-                          </h3>
-                          {testimonial.author.handle && (
-                            <p className="text-sm text-[#c1c4c8]">
-                              {testimonial.author.handle}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                      <p className="mt-4 text-sm text-[#c1c4c8]">
-                        {testimonial.text}
-                      </p>
-                    </div>
-                  ))
-                ))}
-              </div>
-            </div>
-
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#2b2e33]" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#2b2e33]" />
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8 text-center bg-[#2b2e33]">
-        <div className="flex items-center justify-center gap-6 mb-4">
-          <a
-            href="https://www.instagram.com/s8iah.visuals/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
-            aria-label="Instagram"
-          >
-            <Instagram size={20} />
-          </a>
-          <a
-            href="https://www.tiktok.com/@s8iah.visuals"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
-            aria-label="TikTok"
-          >
-            <TikTokIcon />
-          </a>
-        </div>
-        <p className="text-sm text-[#c1c4c8]">© {new Date().getFullYear()} SV</p>
-      </footer>
+<footer className="px-6 py-8 text-center bg-[#2b2e33]">
+  <div className="flex items-center justify-center gap-6 mb-4">
+    
+    {/* Instagram */}
+    <a
+      href="https://www.instagram.com/s8iah.visuals/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
+      aria-label="Instagram"
+    >
+      <Instagram size={20} />
+    </a>
+
+    {/* TikTok */}
+    <a
+      href="https://www.tiktok.com/@s8iah.visuals"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
+      aria-label="TikTok"
+    >
+      <TikTokIcon />
+    </a>
+
+    {/* Facebook */}
+    <a
+      href="https://www.facebook.com/people/Saiah-Visuals/pfbid02QRKkgXxcZbkb3cQsnXuzNVocUHaGMh6k1qqyBjs4j3pa8BjBFx18M7MUXGy5kodYl/?mibextid=wwXIfr&rdid=jatsvi78DLFN8sG5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1ETNs6gMTz%2F%3Fmibextid%3DwwXIfr" 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
+      aria-label="Facebook"
+    >
+      <Facebook size={20} />
+    </a>
+
+    {/* YouTube */}
+    <a
+      href="https://www.youtube.com/@Saiah-o5t" 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#c1c4c8] hover:text-[#f5f6f7] transition-colors duration-300"
+      aria-label="YouTube"
+    >
+      <Youtube size={20} />
+    </a>
+
+  </div>
+
+  <p className="text-sm text-[#c1c4c8]">
+    © {new Date().getFullYear()} SV
+  </p>
+</footer>
 
       {/* Floating Book Button */}
       <button

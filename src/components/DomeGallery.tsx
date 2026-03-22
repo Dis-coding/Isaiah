@@ -32,30 +32,35 @@ const getDataNumber = (el: HTMLElement, name: string, fallback: number) => {
 };
 
 function buildItems(pool: any[], seg: number) {
+  const MAX_IMAGES = 100;
+
   const xCols = Array.from({ length: seg }, (_, i) => -37 + i * 2);
+
   const evenYs = [-4, -2, 0, 2, 4];
   const oddYs = [-3, -1, 1, 3, 5];
+
   const coords = xCols.flatMap((x, c) => {
     const ys = c % 2 === 0 ? evenYs : oddYs;
     return ys.map(y => ({ x, y, sizeX: 2, sizeY: 2 }));
   });
-  const totalSlots = coords.length;
-  if (pool.length === 0) return coords.map(c => ({ ...c, src: '', alt: '' }));
-  const normalizedImages = pool.map(image =>
-    typeof image === 'string' ? { src: image, alt: '' } : { src: image.src || '', alt: image.alt || '' }
+
+  const normalizedImages = pool.map(img =>
+    typeof img === "string"
+      ? { src: img, alt: "" }
+      : { src: img.src || "", alt: img.alt || "" }
   );
-  const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
-  for (let i = 1; i < usedImages.length; i++) {
-    if (usedImages[i].src === usedImages[i - 1].src) {
-      for (let j = i + 1; j < usedImages.length; j++) {
-        if (usedImages[j].src !== usedImages[i].src) {
-          [usedImages[i], usedImages[j]] = [usedImages[j], usedImages[i]];
-          break;
-        }
-      }
-    }
-  }
-  return coords.map((c, i) => ({ ...c, src: usedImages[i].src, alt: usedImages[i].alt }));
+
+  // 🔥 Limit to 100 images max
+  const limitedImages = normalizedImages.slice(0, MAX_IMAGES);
+
+  // Also respect available dome slots
+  const usableSlots = Math.min(coords.length, limitedImages.length);
+
+  return coords.slice(0, usableSlots).map((c, i) => ({
+    ...c,
+    src: limitedImages[i].src,
+    alt: limitedImages[i].alt
+  }));
 }
 
 function computeItemBaseRotation(offsetX: number, offsetY: number, sizeX: number, sizeY: number, segments: number) {
