@@ -52,7 +52,7 @@
     --font-body: 'Inter', sans-serif;
 
     --glass-bg: hsla(216, 8%, 6%, 0.7);
-    --glass-border: hsla(0, 0%, 100%, 0.08);
+    --glass-border: hsla(0, 100%, 49%, 0.08);
   }
 
   * {

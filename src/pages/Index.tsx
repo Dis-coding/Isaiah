@@ -395,7 +395,7 @@ const Index = () => {
       </section>
 
       {/* Dome Gallery Section */}
-      <section className="relative h-[80vh] md:h-screen bg-[#1e2024]">
+      <section className="relative h-[80vh] md:h-screen bg-[#2b2e33]">
         <DomeGallery
           images={galleryImages}
           fit={0.55}
@@ -408,7 +408,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 md:py-32 bg-[#2b2e33]">
+      <section id="services" className="py-16 md:py-32 bg-gradient-to-t from-[#7b7f85] to-[#2b2e33]">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <h2 className="text-center text-3xl md:text-4xl font-bold mb-10 md:mb-20 text-[#f5f6f7]">Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -449,7 +449,7 @@ const Index = () => {
 
 
       {/* Footer */}
-<footer className="px-6 py-8 text-center bg-[#2b2e33]">
+<footer className="px-6 py-8 text-center bg-[#7b7f85]">
   <div className="flex items-center justify-center gap-6 mb-4">
     
     {/* Instagram */}
@@ -524,10 +524,10 @@ const Index = () => {
       <div
         className={`fixed bottom-20 right-4 md:bottom-24 md:right-8 z-[2000] w-[calc(100vw-2rem)] md:w-[380px] max-h-[520px] rounded-2xl overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] origin-bottom-right ${isModalOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
         style={{
-          background: 'rgba(43,46,51,0.95)',
+          background: 'rgba(86, 89, 93, 0.95)',
           backdropFilter: 'blur(30px)',
           WebkitBackdropFilter: 'blur(30px)',
-          boxShadow: '0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(193,196,200,0.15)',
+          boxShadow: '0 16px 48px rgba(46, 43, 43, 0.6), 0 0 0 1px rgb(211, 211, 211)',
         }}
       >
         <div className="p-6 flex flex-col max-h-[520px] overflow-y-auto">
