@@ -12,15 +12,6 @@ interface Event {
   gallery?: string[];
 }
 
-interface Testimonial {
-  author: {
-    name: string;
-    handle: string;
-    avatar: string;
-  };
-  text: string;
-}
-
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -44,125 +35,8 @@ const Index = () => {
   ];
 
   const galleryImages = [
-    '/Images/Discoding.jpg',
-    '/Images/Photos/IMG_0424 copy.jpg',
-    '/Images/Photos/IMG_0431 copy.jpg',
-    '/Images/Photos/IMG_0464 copy.jpg',
-    '/Images/Photos/IMG_0626.jpg',
-    '/Images/Photos/IMG_0663.jpg',
-    '/Images/Photos/IMG_1042 copy.jpg',
-    '/Images/Photos/IMG_1120 copy.jpg',
-    '/Images/Photos/IMG_1249 copy.jpg',
-    '/Images/Photos/IMG_1550 copy.jpg',
-    '/Images/Photos/IMG_1811 copy.jpg',
-    '/Images/Photos/IMG_3232.jpg',
-    '/Images/Photos/IMG_5561 copy.jpg',
-    '/Images/Photos/IMG_5653 copy.jpg',
     '/Images/Photos/IMG_6003 copy.jpg',
-    '/Images/Photos/IMG_9163 copy.jpg',
-    '/Images/Photos/IMG_9169 copy.jpg',
-    '/Images/Photos/IMG_9464 copy.jpg',
-    '/Images/Photos/IMG_9499 copy.jpg',
-    '/Images/Photos/IMG_9534 copy.jpg',
-    '/Images/Photos/IMG_9576 copy.jpg',
-    '/Images/Photos/IMG_9604 copy.jpg',
-    '/Images/Photos/IMG_9724 copy.jpg',
-    '/Images/Photos/IMG_9846 copy.jpg',
-    '/Images/Discoding.jpg',
-    '/Images/Photos/IMG_0424 copy.jpg',
-    '/Images/Photos/IMG_0431 copy.jpg',
-    '/Images/Photos/IMG_0464 copy.jpg',
-    '/Images/Photos/IMG_0626.jpg',
-    '/Images/Photos/IMG_0663.jpg',
-    '/Images/Photos/IMG_1042 copy.jpg',
-    '/Images/Photos/IMG_1120 copy.jpg',
-    '/Images/Photos/IMG_1249 copy.jpg',
-    '/Images/Photos/IMG_1550 copy.jpg',
-    '/Images/Photos/IMG_1811 copy.jpg',
-    '/Images/Photos/IMG_3232.jpg',
-    '/Images/Photos/IMG_5561 copy.jpg',
-    '/Images/Photos/IMG_5653 copy.jpg',
-    '/Images/Photos/IMG_6003 copy.jpg',
-    '/Images/Photos/IMG_9163 copy.jpg',
-    '/Images/Photos/IMG_9169 copy.jpg',
-    '/Images/Photos/IMG_9464 copy.jpg',
-    '/Images/Photos/IMG_9499 copy.jpg',
-    '/Images/Photos/IMG_9534 copy.jpg',
-    '/Images/Photos/IMG_9576 copy.jpg',
-    '/Images/Photos/IMG_9604 copy.jpg',
-    '/Images/Photos/IMG_9724 copy.jpg',
-    '/Images/Photos/IMG_9846 copy.jpg',
-    '/Images/Discoding.jpg',
-    '/Images/Photos/IMG_0424 copy.jpg',
-    '/Images/Photos/IMG_0431 copy.jpg',
-    '/Images/Photos/IMG_0464 copy.jpg',
-    '/Images/Photos/IMG_0626.jpg',
-    '/Images/Photos/IMG_0663.jpg',
-    '/Images/Photos/IMG_1042 copy.jpg',
-    '/Images/Photos/IMG_1120 copy.jpg',
-    '/Images/Photos/IMG_1249 copy.jpg',
-    '/Images/Photos/IMG_1550 copy.jpg',
-    '/Images/Photos/IMG_1811 copy.jpg',
-    '/Images/Photos/IMG_3232.jpg',
-    '/Images/Photos/IMG_5561 copy.jpg',
-    '/Images/Photos/IMG_5653 copy.jpg',
-    '/Images/Photos/IMG_6003 copy.jpg',
-    '/Images/Photos/IMG_9163 copy.jpg',
-    '/Images/Photos/IMG_9169 copy.jpg',
-    '/Images/Photos/IMG_9464 copy.jpg',
-    '/Images/Photos/IMG_9499 copy.jpg',
-    '/Images/Photos/IMG_9534 copy.jpg',
-    '/Images/Photos/IMG_9576 copy.jpg',
-    '/Images/Photos/IMG_9604 copy.jpg',
-    '/Images/Photos/IMG_9724 copy.jpg',
-    '/Images/Photos/IMG_9846 copy.jpg',
-    '/Images/Discoding.jpg',
-    '/Images/Photos/IMG_0424 copy.jpg',
-    '/Images/Photos/IMG_0431 copy.jpg',
-    '/Images/Photos/IMG_0464 copy.jpg',
-    '/Images/Photos/IMG_0626.jpg',
-    '/Images/Photos/IMG_0663.jpg',
-    '/Images/Photos/IMG_1042 copy.jpg',
-    '/Images/Photos/IMG_1120 copy.jpg',
-    '/Images/Photos/IMG_1249 copy.jpg',
-    '/Images/Photos/IMG_1550 copy.jpg',
-    '/Images/Photos/IMG_1811 copy.jpg',
-    '/Images/Photos/IMG_3232.jpg',
-    '/Images/Photos/IMG_5561 copy.jpg',
-    '/Images/Photos/IMG_5653 copy.jpg',
-    '/Images/Photos/IMG_6003 copy.jpg',
-    '/Images/Photos/IMG_9163 copy.jpg',
-    '/Images/Photos/IMG_9169 copy.jpg',
-    '/Images/Photos/IMG_9464 copy.jpg',
-    '/Images/Photos/IMG_9499 copy.jpg',
-    '/Images/Photos/IMG_9534 copy.jpg',
-    '/Images/Photos/IMG_9576 copy.jpg',
-    '/Images/Photos/IMG_9604 copy.jpg',
-    '/Images/Photos/IMG_9724 copy.jpg',
-    '/Images/Photos/IMG_9846 copy.jpg',
-    '/Images/Discoding.jpg',
-    '/Images/Photos/IMG_0424 copy.jpg',
-    '/Images/Photos/IMG_0431 copy.jpg',
-    '/Images/Photos/IMG_0464 copy.jpg',
 
-  ];
-
-  const testimonials: Testimonial[] = [
-    { author: { name: 'Keisha Williams', handle: '', avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150&h=150&fit=crop&crop=face' }, text: 'Absolutely stunning work! The photographer captured our wedding day perfectly. Every moment was beautifully preserved.' },
-    { author: { name: 'Marcus Thompson', handle: '', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face' }, text: 'Professional, creative, and a joy to work with. The photos exceeded all our expectations!' },
-    { author: { name: 'Maria Garcia', handle: '', avatar: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150&h=150&fit=crop&crop=face' }, text: 'The attention to detail is incredible. These photos will be treasured for generations.' },
-    { author: { name: 'DeAndre Williams', handle: '', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face' }, text: 'Amazing experience from start to finish. Highly recommend for any special occasion!' },
-    { author: { name: 'Jasmine Carter', handle: '', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face' }, text: 'The quality and creativity in every shot is exceptional. Worth every penny!' },
-    { author: { name: 'Carlos Mendez', handle: '', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face' }, text: 'Made us feel comfortable and captured our personalities perfectly. Highly recommended!' },
-  ];
-
-  const testimonials2: Testimonial[] = [
-    { author: { name: 'Aaliyah Brooks', handle: '', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face' }, text: 'Incredible eye for composition and lighting. The photos turned out even better than I imagined!' },
-    { author: { name: 'Isabella Rodriguez', handle: '', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face' }, text: 'Captured the energy of our event perfectly. Everyone at the party loved the final shots!' },
-    { author: { name: 'Tyrone Jackson', handle: '', avatar: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=150&h=150&fit=crop&crop=face' }, text: 'A true professional who made the entire photoshoot experience effortless and fun.' },
-    { author: { name: 'Sophia Chen', handle: '', avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face' }, text: 'The creativity and attention to detail exceeded expectations. Truly exceptional work!' },
-    { author: { name: 'Jamal Anderson', handle: '', avatar: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop&crop=face' }, text: "Best photographer I've worked with. The results speak for themselves!" },
-    { author: { name: 'Gabriela Santos', handle: '', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face' }, text: 'Captured our special day with such artistry and emotion. Forever grateful!' },
   ];
 
   const closeModal = () => {
@@ -395,7 +269,7 @@ const Index = () => {
       </section>
 
       {/* Dome Gallery Section */}
-      <section className="relative h-[80vh] md:h-screen bg-[#2b2e33]">
+      <section className="relative h-[80vh] md:h-screen bg-[#1e2024]">
         <DomeGallery
           images={galleryImages}
           fit={0.55}
