@@ -36,6 +36,8 @@ const Index = () => {
 
   const galleryImages = [
     '/Images/Photos/IMG_6003 copy.jpg',
+    '/Images/Photos/testings.jpg',
+
 
   ];
 
